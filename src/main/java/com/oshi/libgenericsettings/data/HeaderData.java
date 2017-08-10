@@ -9,7 +9,7 @@ public class HeaderData extends BaseViewTypeData {
     private int headerColor;
 
     public HeaderData() {
-
+        // Empty C'TOR
     }
 
     public HeaderData(String headerName, int headerColor) {

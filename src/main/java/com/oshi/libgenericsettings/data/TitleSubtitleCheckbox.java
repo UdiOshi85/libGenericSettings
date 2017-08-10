@@ -1,7 +1,7 @@
 package com.oshi.libgenericsettings.data;
 
 /**
- * Checkbox, Title & Subtitle. Being use in layout/view_type_checkbox_title_subtitle.xml
+ * Settings Title, Subtitle & Checkbox. Being use in layout/view_type_title_subtitle_checkbox.xml
  */
 
 public class TitleSubtitleCheckbox extends TitleSubtitleData {

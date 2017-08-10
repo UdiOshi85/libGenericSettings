@@ -1,7 +1,7 @@
 package com.oshi.libgenericsettings.data;
 
 /**
- * Created by udios on 20/06/2017.
+ * Base POJO for recycling view types handling
  */
 public abstract class BaseViewTypeData {
 

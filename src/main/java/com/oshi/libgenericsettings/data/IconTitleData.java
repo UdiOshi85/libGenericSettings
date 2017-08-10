@@ -1,7 +1,7 @@
 package com.oshi.libgenericsettings.data;
 
 /**
- * Created by udioshi on 8/7/2017.
+ * Settings Icon & Title data object. Being use in layout/view_type_icon_title.xml
  */
 public class IconTitleData extends TitleData {
 

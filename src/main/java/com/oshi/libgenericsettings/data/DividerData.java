@@ -1,7 +1,5 @@
 package com.oshi.libgenericsettings.data;
 
-import com.oshi.libgenericsettings.R;
-
 /**
  * Divider line. Being use in layout/view_type_divider.xml
  */

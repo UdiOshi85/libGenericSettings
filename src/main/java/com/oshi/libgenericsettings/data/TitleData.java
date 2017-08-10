@@ -1,7 +1,7 @@
 package com.oshi.libgenericsettings.data;
 
 /**
- * Created by udioshi on 8/7/2017.
+ * Settings Title data object. Being use in layout/view_type_title.xml
  */
 public class TitleData extends BaseViewTypeData {
 

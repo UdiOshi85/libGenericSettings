@@ -1,7 +1,5 @@
 package com.oshi.libgenericsettings.data;
 
-import com.oshi.libgenericsettings.R;
-
 /**
  * Title & Switch. Being use in layout/view_type_title_switch.xml
  */

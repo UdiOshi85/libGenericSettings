@@ -68,7 +68,7 @@ public class SettingsAdapter extends RecyclerView.Adapter<BaseSettingsViewHolder
             return new TitleSwitchViewHolder(binding);
         } else if (viewType == BaseViewTypeData.VIEW_TYPE_CHECKBOX_TITLE_SUBTITLE) {
             ViewDataBinding binding = DataBindingUtil.inflate(
-                    layoutInflater, R.layout.view_type_checkbox_title_subtitle, parent, false);
+                    layoutInflater, R.layout.view_type_title_subtitle_checkbox, parent, false);
             return new CheckBoxTitleSubtitleViewHolder(binding);
         } else if (viewType == BaseViewTypeData.VIEW_TYPE_SETTINGS_TITLE) {
             ViewDataBinding binding = DataBindingUtil.inflate(

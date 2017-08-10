@@ -1,5 +1,8 @@
 package com.oshi.libgenericsettings.data;
 
+/**
+ * Settings Title & Secondary title data object. Being use in layout/view_type_title_secondary_title.xml
+ */
 public class TitleSecondaryTitleData extends TitleData {
 
     private String secondaryTitle;
