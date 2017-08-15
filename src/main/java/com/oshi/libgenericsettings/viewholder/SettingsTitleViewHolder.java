@@ -3,19 +3,22 @@ package com.oshi.libgenericsettings.viewholder;
 import android.databinding.ViewDataBinding;
 
 import com.oshi.libgenericsettings.BR;
-import com.oshi.libgenericsettings.data.TitleSecondaryTitleData;
+import com.oshi.libgenericsettings.data.TitleData;
 import com.oshi.libgenericsettings.presenter.ISettingsPresenter;
 
+/**
+ * Created by udioshi on 8/7/2017.
+ */
 
-public class TitleSecondaryTitleViewHolder extends BaseSettingsViewHolder<TitleSecondaryTitleData> {
+public class SettingsTitleViewHolder extends BaseSettingsViewHolder<TitleData> {
 
-    public TitleSecondaryTitleViewHolder(ViewDataBinding viewDataBinding) {
+    public SettingsTitleViewHolder(ViewDataBinding viewDataBinding) {
         super(viewDataBinding);
     }
 
     @Override
-    public void onBind(TitleSecondaryTitleData data, ISettingsPresenter presenter, int position) {
-        viewDataBinding.setVariable(BR.titleSecondaryTitleData, data);
+    public void onBind(TitleData data, ISettingsPresenter presenter, int position) {
+        viewDataBinding.setVariable(BR.titleData, data);
         viewDataBinding.setVariable(BR.itemPosition, position);
         viewDataBinding.setVariable(BR.settingsPresenter, presenter);
         viewDataBinding.executePendingBindings();

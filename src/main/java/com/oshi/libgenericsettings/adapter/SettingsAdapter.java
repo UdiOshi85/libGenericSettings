@@ -11,15 +11,16 @@ import com.oshi.libgenericsettings.R;
 import com.oshi.libgenericsettings.data.BaseViewTypeData;
 import com.oshi.libgenericsettings.presenter.ISettingsPresenter;
 import com.oshi.libgenericsettings.viewholder.BaseSettingsViewHolder;
-import com.oshi.libgenericsettings.viewholder.CheckBoxTitleSubtitleViewHolder;
-import com.oshi.libgenericsettings.viewholder.IconTitleViewHolder;
+import com.oshi.libgenericsettings.viewholder.SettingsCheckBoxTitleSubtitleViewHolder;
+import com.oshi.libgenericsettings.viewholder.SettingsIconTitleViewHolder;
 import com.oshi.libgenericsettings.viewholder.SettingsDividerViewHolder;
 import com.oshi.libgenericsettings.viewholder.SettingsHeaderViewHolder;
+import com.oshi.libgenericsettings.viewholder.SettingsTitleIconSeekBarTextViewHolder;
 import com.oshi.libgenericsettings.viewholder.SettingsTitleSubtitleSwitchViewHolder;
 import com.oshi.libgenericsettings.viewholder.SettingsTitleSubtitleViewHolder;
-import com.oshi.libgenericsettings.viewholder.TitleSecondaryTitleViewHolder;
-import com.oshi.libgenericsettings.viewholder.TitleSwitchViewHolder;
-import com.oshi.libgenericsettings.viewholder.TitleViewHolder;
+import com.oshi.libgenericsettings.viewholder.SettingsTitleSecondaryTitleViewHolder;
+import com.oshi.libgenericsettings.viewholder.SettingsTitleSwitchViewHolder;
+import com.oshi.libgenericsettings.viewholder.SettingsTitleViewHolder;
 
 import java.util.List;
 
@@ -65,23 +66,27 @@ public class SettingsAdapter extends RecyclerView.Adapter<BaseSettingsViewHolder
             ViewDataBinding binding = DataBindingUtil.inflate(
                     layoutInflater, R.layout.view_type_title_switch, parent, false);
 
-            return new TitleSwitchViewHolder(binding);
+            return new SettingsTitleSwitchViewHolder(binding);
         } else if (viewType == BaseViewTypeData.VIEW_TYPE_CHECKBOX_TITLE_SUBTITLE) {
             ViewDataBinding binding = DataBindingUtil.inflate(
                     layoutInflater, R.layout.view_type_title_subtitle_checkbox, parent, false);
-            return new CheckBoxTitleSubtitleViewHolder(binding);
+            return new SettingsCheckBoxTitleSubtitleViewHolder(binding);
         } else if (viewType == BaseViewTypeData.VIEW_TYPE_SETTINGS_TITLE) {
             ViewDataBinding binding = DataBindingUtil.inflate(
                     layoutInflater, R.layout.view_type_title, parent, false);
-            return new TitleViewHolder(binding);
+            return new SettingsTitleViewHolder(binding);
         } else if (viewType == BaseViewTypeData.VIEW_TYPE_SETTINGS_ICON_TITLE) {
             ViewDataBinding binding = DataBindingUtil.inflate(
                     layoutInflater, R.layout.view_type_icon_title, parent, false);
-            return new IconTitleViewHolder(binding);
+            return new SettingsIconTitleViewHolder(binding);
         } else if (viewType == BaseViewTypeData.VIEW_TYPE_SETTINGS_TITLE_SECONDARY_TITLE) {
             ViewDataBinding binding = DataBindingUtil.inflate(
                     layoutInflater, R.layout.view_type_title_secondary_title, parent, false);
-            return new TitleSecondaryTitleViewHolder(binding);
+            return new SettingsTitleSecondaryTitleViewHolder(binding);
+        } else if (viewType == BaseViewTypeData.VIEW_TYPE_SETTINGS_TITLE_ICON_SEEKBAR) {
+            ViewDataBinding binding = DataBindingUtil.inflate(
+                    layoutInflater, R.layout.view_type_title_icon_seekbar_text, parent, false);
+            return new SettingsTitleIconSeekBarTextViewHolder(binding);
         }
 
         return null;

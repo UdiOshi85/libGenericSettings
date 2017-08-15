@@ -8,10 +8,10 @@ import com.oshi.libgenericsettings.data.TitleSwitchData;
 import com.oshi.libgenericsettings.presenter.ISettingsPresenter;
 
 
-public class TitleSwitchViewHolder extends BaseSettingsViewHolder<TitleSwitchData> {
+public class SettingsTitleSwitchViewHolder extends BaseSettingsViewHolder<TitleSwitchData> {
 
 
-    public TitleSwitchViewHolder(ViewDataBinding viewDataBinding) {
+    public SettingsTitleSwitchViewHolder(ViewDataBinding viewDataBinding) {
         super(viewDataBinding);
     }
 

@@ -5,7 +5,7 @@ package com.oshi.libgenericsettings.data;
  */
 public class IconTitleData extends TitleData {
 
-    private int iconResId;
+    protected int iconResId;
 
 
     public IconTitleData(String title) {
@@ -14,6 +14,11 @@ public class IconTitleData extends TitleData {
 
     public IconTitleData(String title, int titleColor) {
         super(title, titleColor);
+    }
+
+    public IconTitleData(int iconResId, String title) {
+        super(title);
+        this.iconResId = iconResId;
     }
 
     public IconTitleData(int iconResId, String title, int titleColor) {
