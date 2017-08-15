@@ -8,6 +8,8 @@ public class TitleIconSeekBarTextData extends IconTitleData {
     private int seekBarMaximumValue;
     private int seekBarCurrentProgress = 0;
     private int seekBarColor;
+    private int seekBarThumbColor;
+    private int textColor;
 
     public TitleIconSeekBarTextData(int iconResId, String title, int titleColor) {
         super(iconResId, title, titleColor);
@@ -39,6 +41,22 @@ public class TitleIconSeekBarTextData extends IconTitleData {
 
     public void setSeekBarColor(int seekBarColor) {
         this.seekBarColor = seekBarColor;
+    }
+
+    public int getTextColor() {
+        return textColor;
+    }
+
+    public void setTextColor(int textColor) {
+        this.textColor = textColor;
+    }
+
+    public int getSeekBarThumbColor() {
+        return seekBarThumbColor;
+    }
+
+    public void setSeekBarThumbColor(int seekBarThumbColor) {
+        this.seekBarThumbColor = seekBarThumbColor;
     }
 
     @Override
