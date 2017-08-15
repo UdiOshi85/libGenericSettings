@@ -20,6 +20,7 @@ import com.oshi.libgenericsettings.viewholder.SettingsTitleSubtitleSwitchViewHol
 import com.oshi.libgenericsettings.viewholder.SettingsTitleSubtitleViewHolder;
 import com.oshi.libgenericsettings.viewholder.SettingsTitleSecondaryTitleViewHolder;
 import com.oshi.libgenericsettings.viewholder.SettingsTitleSwitchViewHolder;
+import com.oshi.libgenericsettings.viewholder.SettingsTitleUpDownValueViewHolder;
 import com.oshi.libgenericsettings.viewholder.SettingsTitleViewHolder;
 
 import java.util.List;
@@ -87,6 +88,10 @@ public class SettingsAdapter extends RecyclerView.Adapter<BaseSettingsViewHolder
             ViewDataBinding binding = DataBindingUtil.inflate(
                     layoutInflater, R.layout.view_type_title_icon_seekbar_text, parent, false);
             return new SettingsTitleIconSeekBarTextViewHolder(binding);
+        } else if (viewType == BaseViewTypeData.VIEW_TYPE_SETTINGS_TITLE_UP_DOWN_VALUE) {
+            ViewDataBinding binding = DataBindingUtil.inflate(
+                    layoutInflater, R.layout.view_type_title_up_down_value, parent, false);
+            return new SettingsTitleUpDownValueViewHolder(binding);
         }
 
         return null;

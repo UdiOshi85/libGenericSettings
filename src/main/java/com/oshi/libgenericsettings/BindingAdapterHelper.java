@@ -5,6 +5,7 @@ import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuffColorFilter;
 import android.os.Build;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.AppCompatImageView;
 import android.support.v7.widget.AppCompatSeekBar;
 
@@ -27,6 +28,13 @@ public class BindingAdapterHelper {
     public static void setSeekBarThumbColor(AppCompatSeekBar seekBar, int seekBarThumbColor) {
         if (seekBarThumbColor != 0 && Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
             seekBar.getThumb().setColorFilter(new PorterDuffColorFilter(seekBarThumbColor, PorterDuff.Mode.SRC_IN));
+        }
+    }
+
+    @BindingAdapter({"app:tint"})
+    public static void tintAppCompatImageViewColor(AppCompatImageView imageView, int color) {
+        if (color != 0) {
+            imageView.setColorFilter(ContextCompat.getColor(imageView.getContext(), color), android.graphics.PorterDuff.Mode.MULTIPLY);
         }
     }
 }

@@ -12,6 +12,7 @@ import com.oshi.libgenericsettings.data.TitleData;
 import com.oshi.libgenericsettings.data.TitleSubtitleData;
 import com.oshi.libgenericsettings.data.TitleSubtitleSwitchData;
 import com.oshi.libgenericsettings.data.TitleSwitchData;
+import com.oshi.libgenericsettings.data.TitleUpDownValueData;
 
 import java.util.List;
 
@@ -63,6 +64,11 @@ public class BaseSettingsPresenter implements ISettingsPresenter {
 
     @Override
     public void onTitleIconSeekBarTextChanged(View view, TitleIconSeekBarTextData data, int position) {
+
+    }
+
+    @Override
+    public void onTitleUpDownValueChanged(View view, TitleUpDownValueData data, int position) {
 
     }
 }

@@ -12,6 +12,7 @@ import com.oshi.libgenericsettings.data.TitleData;
 import com.oshi.libgenericsettings.data.TitleSubtitleData;
 import com.oshi.libgenericsettings.data.TitleSubtitleSwitchData;
 import com.oshi.libgenericsettings.data.TitleSwitchData;
+import com.oshi.libgenericsettings.data.TitleUpDownValueData;
 
 import java.util.List;
 
@@ -37,6 +38,8 @@ public interface ISettingsPresenter {
     void onTitleSecondaryTitleClick(View view, TitleSecondaryTitleData data, int position);
 
     void onTitleIconSeekBarTextChanged(View view, TitleIconSeekBarTextData data, int position);
+
+    void onTitleUpDownValueChanged(View view, TitleUpDownValueData data, int position);
 
     List<BaseViewTypeData> getItems(Context context);
 

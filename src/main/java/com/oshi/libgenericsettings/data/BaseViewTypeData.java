@@ -15,6 +15,7 @@ public abstract class BaseViewTypeData {
     public static final int VIEW_TYPE_SETTINGS_ICON_TITLE = 9;
     public static final int VIEW_TYPE_SETTINGS_TITLE_SECONDARY_TITLE = 10;
     public static final int VIEW_TYPE_SETTINGS_TITLE_ICON_SEEKBAR = 11;
+    public static final int VIEW_TYPE_SETTINGS_TITLE_UP_DOWN_VALUE = 12;
 
 
     public abstract int getViewType();
