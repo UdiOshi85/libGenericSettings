@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.View;
 
 import com.oshi.libgenericsettings.data.BaseViewTypeData;
+import com.oshi.libgenericsettings.data.TitleIconSeekBarTextData;
 import com.oshi.libgenericsettings.data.TitleSecondaryTitleData;
 import com.oshi.libgenericsettings.data.TitleSubtitleCheckbox;
 import com.oshi.libgenericsettings.data.IconTitleData;
@@ -34,6 +35,8 @@ public interface ISettingsPresenter {
     void onIconTitleClick(View view, IconTitleData data, int position);
 
     void onTitleSecondaryTitleClick(View view, TitleSecondaryTitleData data, int position);
+
+    void onTitleIconSeekBarTextChanged(View view, TitleIconSeekBarTextData data, int position);
 
     List<BaseViewTypeData> getItems(Context context);
 

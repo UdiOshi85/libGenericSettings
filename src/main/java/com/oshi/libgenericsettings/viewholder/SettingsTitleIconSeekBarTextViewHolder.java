@@ -15,7 +15,7 @@ public class SettingsTitleIconSeekBarTextViewHolder extends BaseSettingsViewHold
     }
 
     @Override
-    public void onBind(final TitleIconSeekBarTextData data, ISettingsPresenter presenter, int position) {
+    public void onBind(final TitleIconSeekBarTextData data, final ISettingsPresenter presenter, int position) {
         viewDataBinding.setVariable(BR.titleIconSeekBarTextData, data);
         viewDataBinding.setVariable(BR.itemPosition, position);
         viewDataBinding.setVariable(BR.settingsPresenter, presenter);
@@ -29,6 +29,7 @@ public class SettingsTitleIconSeekBarTextViewHolder extends BaseSettingsViewHold
                     data.setSeekBarCurrentProgress(progress);
                     viewDataBinding.setVariable(BR.titleIconSeekBarTextData, data);
                     viewDataBinding.executePendingBindings();
+                    presenter.onTitleIconSeekBarTextChanged(viewDataBinding.getRoot(), data, getAdapterPosition());
                 }
             }
 
