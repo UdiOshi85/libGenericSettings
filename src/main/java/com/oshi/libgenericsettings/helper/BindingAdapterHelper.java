@@ -1,4 +1,4 @@
-package com.oshi.libgenericsettings;
+package com.oshi.libgenericsettings.helper;
 
 import android.databinding.BindingAdapter;
 import android.graphics.Color;
@@ -8,6 +8,7 @@ import android.os.Build;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.AppCompatImageView;
 import android.support.v7.widget.AppCompatSeekBar;
+import android.widget.TextView;
 
 public class BindingAdapterHelper {
 
@@ -34,7 +35,14 @@ public class BindingAdapterHelper {
     @BindingAdapter({"app:tint"})
     public static void tintAppCompatImageViewColor(AppCompatImageView imageView, int color) {
         if (color != 0) {
-            imageView.setColorFilter(ContextCompat.getColor(imageView.getContext(), color), android.graphics.PorterDuff.Mode.MULTIPLY);
+            imageView.setColorFilter(ContextCompat.getColor(imageView.getContext(), color), PorterDuff.Mode.SRC_IN);
+        }
+    }
+
+    @BindingAdapter({"app:textColor"})
+    public static void setTextColor(TextView textView, int color) {
+        if (color != 0) {
+            textView.setTextColor(ContextCompat.getColor(textView.getContext(), color));
         }
     }
 }

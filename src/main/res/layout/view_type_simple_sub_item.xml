@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="expandableTitleSimpleItemsData"
+            type="com.oshi.libgenericsettings.data.ExpandableTitleSimpleItemsData" />
+
+        <variable
+            name="parentPosition"
+            type="Integer"/>
+
+        <variable
+            name="itemPosition"
+            type="java.lang.Integer" />
+
+        <variable
+            name="settingsPresenter"
+            type="com.oshi.libgenericsettings.presenter.ISettingsPresenter" />
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        style="@style/Settings.BaseSubItemView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/dimen_4_dp"
+        android:paddingBottom="@dimen/dimen_4_dp"
+        android:background="?attr/selectableItemBackground"
+        android:onClick="@{(view) -> settingsPresenter.onExpandableSimpleItemClicked(view, expandableTitleSimpleItemsData, parentPosition, itemPosition)}"
+        >
+
+        <TextView
+            android:id="@+id/simpleSubItem"
+            style="@style/Settings.SimpleSubItem"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:textColor="@{expandableTitleSimpleItemsData.itemsColor}"
+            android:text="@{expandableTitleSimpleItemsData.items.get(itemPosition), default=`Simple sub item`}"
+            android:layout_width="@dimen/dimen_0_dp"
+            android:layout_height="wrap_content" />
+
+    </android.support.constraint.ConstraintLayout>
+
+</layout>

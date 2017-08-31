@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.View;
 
 import com.oshi.libgenericsettings.data.BaseViewTypeData;
+import com.oshi.libgenericsettings.data.ExpandableTitleSimpleItemsData;
 import com.oshi.libgenericsettings.data.TitleIconSeekBarTextData;
 import com.oshi.libgenericsettings.data.TitleSecondaryTitleData;
 import com.oshi.libgenericsettings.data.TitleSubtitleCheckbox;
@@ -69,6 +70,11 @@ public class BaseSettingsPresenter implements ISettingsPresenter {
 
     @Override
     public void onTitleUpDownValueChanged(View view, TitleUpDownValueData data, int position) {
+
+    }
+
+    @Override
+    public void onExpandableSimpleItemClicked(View view, ExpandableTitleSimpleItemsData data, int parentPosition, int subItemPosition) {
 
     }
 }
