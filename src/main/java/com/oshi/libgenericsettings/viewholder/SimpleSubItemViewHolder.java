@@ -2,7 +2,6 @@ package com.oshi.libgenericsettings.viewholder;
 
 import android.databinding.ViewDataBinding;
 import android.support.v7.widget.RecyclerView;
-import android.view.View;
 
 import com.oshi.libgenericsettings.BR;
 import com.oshi.libgenericsettings.data.ExpandableTitleSimpleItemsData;

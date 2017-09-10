@@ -30,7 +30,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="@{titleSecondaryTitleData.title, default=`Title example here`}"
-            android:textColor="@{titleSecondaryTitleData.titleColor > 0 ? context.getResources().getColor(titleSecondaryTitleData.titleColor) : @color/black}"
+            app:textColor="@{titleSecondaryTitleData.titleColor}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/secondaryTitle"
             app:layout_constraintStart_toStartOf="parent"
@@ -41,7 +41,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@{titleSecondaryTitleData.secondaryTitle, default=`999`}"
-            android:textColor="@{titleSecondaryTitleData.secondaryTitleColor > 0 ? context.getResources().getColor(titleSecondaryTitleData.secondaryTitleColor) : @color/text}"
+            app:textColor="@{titleSecondaryTitleData.secondaryTitleColor}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />

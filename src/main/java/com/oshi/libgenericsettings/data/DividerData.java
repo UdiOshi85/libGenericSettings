@@ -1,5 +1,7 @@
 package com.oshi.libgenericsettings.data;
 
+import com.oshi.libgenericsettings.R;
+
 /**
  * Divider line. Being use in layout/view_type_divider.xml
  */
@@ -17,11 +19,10 @@ public class DividerData extends BaseViewTypeData {
     private int dividerColor;
 
     public DividerData() {
-
+        this.dividerColor = R.color.divider;
     }
 
     public DividerData(int dividerColor) {
-        this();
         this.dividerColor = dividerColor;
     }
 

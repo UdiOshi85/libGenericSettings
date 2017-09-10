@@ -27,7 +27,7 @@
             android:id="@+id/title"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:textColor="@{titleIconSeekBarTextData.titleColor > 0 ? context.getResources().getColor(titleIconSeekBarTextData.titleColor) : @color/black}"
+            app:textColor="@{titleIconSeekBarTextData.titleColor}"
             android:text="@{titleIconSeekBarTextData.title, default=`Title example here, But it's very very very long to check`}"
             style="@style/Settings.Title"
             android:layout_marginEnd="@dimen/dimen_16_dp"
@@ -68,7 +68,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@{String.valueOf(titleIconSeekBarTextData.seekBarCurrentProgress)}"
-            android:textColor="@{titleIconSeekBarTextData.textColor > 0 ? context.getResources().getColor(titleIconSeekBarTextData.textColor) : @color/text}"
+            app:textColor="@{titleIconSeekBarTextData.textColor}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/icon"
             app:layout_constraintBottom_toBottomOf="@+id/icon" />

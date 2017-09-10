@@ -3,8 +3,17 @@
     <color name="white">#FFFFFF</color>
     <color name="black">#000000</color>
     <color name="text">#808080</color>
-    <color name="divider">#1e000000</color>
+    <color name="divider">#1e999999</color>
     <color name="red">#ff0000</color>
     <color name="blue">#0000ff</color>
     <color name="green">#00ff00</color>
+    <color name="purple">#6c005e</color>
+    <color name="orange">#FFA500</color>
+    <color name="lights_orange">#80FFA500</color>
+    <color name="grey">#d3d3d3</color>
+    <color name="green_dark">#007F00</color>
+    <color name="light_green">#80007F00</color>
+    <color name="red_disabled">#ff9999</color>
+    <color name="red_text">#ff3232</color>
+
 </resources>

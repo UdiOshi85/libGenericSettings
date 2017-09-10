@@ -4,8 +4,8 @@
 
     <data>
         <variable
-            name="titleSubtitleData"
-            type="com.oshi.libgenericsettings.data.TitleSubtitleData" />
+            name="titleSubtitleExtraData"
+            type="com.oshi.libgenericsettings.data.TitleSubtitleExtraData"/>
 
         <variable
             name="settingsPresenter"
@@ -17,19 +17,20 @@
 
     </data>
 
+
     <android.support.constraint.ConstraintLayout
-        style="@style/RootView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="@{(view) -> settingsPresenter.onTitleSubtitleClick(view, titleSubtitleData, itemPosition)}">
+        android:onClick="@{(view) -> settingsPresenter.onTitleSubtitleExtraClick(view, titleSubtitleExtraData, itemPosition)}"
+        style="@style/RootView">
 
         <TextView
             android:id="@+id/title"
             style="@style/Settings.Title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{titleSubtitleData.title, default=`Title example here`}"
-            app:textColor="@{titleSubtitleData.titleColor}"
+            android:text="@{titleSubtitleExtraData.title, default=`Title example here`}"
+            app:textColor="@{titleSubtitleExtraData.titleColor}"
             app:layout_constraintBottom_toTopOf="@+id/subtitle"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -39,13 +40,23 @@
             android:id="@+id/subtitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{titleSubtitleData.subtitle, default=`A subtitle text`}"
-            app:textColor="@{titleSubtitleData.subtitleColor}"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:text="@{titleSubtitleExtraData.subtitle, default=`A subtitle text`}"
+            app:textColor="@{titleSubtitleExtraData.subtitleColor}"
+            app:layout_constraintBottom_toTopOf="@+id/extra"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/title" />
 
+        <TextView
+            android:id="@+id/extra"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{titleSubtitleExtraData.extraText, default=`An extra text`}"
+            app:textColor="@{titleSubtitleExtraData.extraColor}"
+            android:textSize="@dimen/dimen_12_sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/subtitle" />
+
 
     </android.support.constraint.ConstraintLayout>
-
 </layout>

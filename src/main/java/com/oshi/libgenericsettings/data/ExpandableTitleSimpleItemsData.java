@@ -3,9 +3,8 @@ package com.oshi.libgenericsettings.data;
 import java.util.List;
 
 /**
- * Created by udioshi on 8/29/2017.
+ * Expandable Title with simple (Only String) sub items. Being use in layout/view_type_expandable_title_items.xml
  */
-
 public class ExpandableTitleSimpleItemsData extends BaseViewTypeData {
 
     protected String title;

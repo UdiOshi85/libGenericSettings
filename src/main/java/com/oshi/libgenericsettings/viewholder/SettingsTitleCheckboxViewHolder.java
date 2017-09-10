@@ -3,19 +3,20 @@ package com.oshi.libgenericsettings.viewholder;
 import android.databinding.ViewDataBinding;
 
 import com.oshi.libgenericsettings.BR;
-import com.oshi.libgenericsettings.data.TitleSubtitleCheckboxData;
+import com.oshi.libgenericsettings.data.TitleCheckboxData;
 import com.oshi.libgenericsettings.presenter.ISettingsPresenter;
 
-public class SettingsCheckBoxTitleSubtitleViewHolder extends BaseSettingsViewHolder<TitleSubtitleCheckboxData> {
+public class SettingsTitleCheckboxViewHolder extends BaseSettingsViewHolder<TitleCheckboxData> {
 
-    public SettingsCheckBoxTitleSubtitleViewHolder(ViewDataBinding viewDataBinding) {
+
+    public SettingsTitleCheckboxViewHolder(ViewDataBinding viewDataBinding) {
         super(viewDataBinding);
     }
 
     @Override
-    public void onBind(TitleSubtitleCheckboxData data, ISettingsPresenter presenter, int position) {
+    public void onBind(TitleCheckboxData data, ISettingsPresenter presenter, int position) {
+        viewDataBinding.setVariable(BR.titleCheckboxData, data);
         viewDataBinding.setVariable(BR.itemPosition, position);
-        viewDataBinding.setVariable(BR.checkboxTitleSubtitle, data);
         viewDataBinding.setVariable(BR.settingsPresenter, presenter);
         viewDataBinding.executePendingBindings();
     }

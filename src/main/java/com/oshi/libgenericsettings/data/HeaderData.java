@@ -1,5 +1,7 @@
 package com.oshi.libgenericsettings.data;
 
+import android.support.annotation.ColorRes;
+
 /**
  * Settings Header data object. Being use in layout/view_type_header.xml
  */
@@ -12,7 +14,7 @@ public class HeaderData extends BaseViewTypeData {
         // Empty C'TOR
     }
 
-    public HeaderData(String headerName, int headerColor) {
+    public HeaderData(String headerName, @ColorRes int headerColor) {
         this.headerName = headerName;
         this.headerColor = headerColor;
     }
@@ -33,7 +35,7 @@ public class HeaderData extends BaseViewTypeData {
         return headerColor;
     }
 
-    public void setHeaderColor(int headerColor) {
+    public void setHeaderColor(@ColorRes int headerColor) {
         this.headerColor = headerColor;
     }
 

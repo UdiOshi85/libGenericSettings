@@ -1,26 +1,34 @@
 package com.oshi.libgenericsettings.data;
 
+import android.support.annotation.ColorRes;
+
 /**
  * Title, Subtitle & Switch. Being use in layout/view_type_title_subtitle_switch.xml
  */
-public class TitleSubtitleSwitchData extends TitleSubtitleData {
+public class TitleSubtitleSwitchData extends TitleSwitchData {
 
-    public boolean isSwitchOn;
+    protected String subtitle;
+    protected @ColorRes int subtitleColor;
 
-    public TitleSubtitleSwitchData() {
+    public TitleSubtitleSwitchData(String title, String subtitle) {
+        super(title);
+        this.subtitle = subtitle;
     }
 
-    public TitleSubtitleSwitchData(String title, String subtitle, boolean isSwitchOn) {
-        super(title, subtitle);
-        this.isSwitchOn = isSwitchOn;
+    public String getSubtitle() {
+        return subtitle;
     }
 
-    public boolean isSwitchOn() {
-        return isSwitchOn;
+    public void setSubtitle(String subtitle) {
+        this.subtitle = subtitle;
     }
 
-    public void setSwitchOn(boolean switchOn) {
-        isSwitchOn = switchOn;
+    public int getSubtitleColor() {
+        return subtitleColor;
+    }
+
+    public void setSubtitleColor(int subtitleColor) {
+        this.subtitleColor = subtitleColor;
     }
 
     @Override

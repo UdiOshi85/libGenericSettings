@@ -1,6 +1,8 @@
 package com.oshi.libgenericsettings.data;
 
 
+import android.support.annotation.ColorRes;
+
 /**
  * Settings Title & Subtitle data. Being use in layout/view_type_title_subtitle.xml
  */
@@ -8,17 +10,23 @@ public class TitleSubtitleData extends BaseViewTypeData {
 
     protected String title;
     protected String subtitle;
-    protected int titleColor;
-    protected int subtitleColor;
+    protected @ColorRes int titleColor;
+    protected @ColorRes int subtitleColor;
 
     public TitleSubtitleData() {
 
     }
 
     public TitleSubtitleData(String title, String subtitle) {
-        this();
         this.title = title;
         this.subtitle = subtitle;
+    }
+
+    public TitleSubtitleData(String title, String subtitle, @ColorRes int titleColor, @ColorRes int subtitleColor) {
+        this.title = title;
+        this.subtitle = subtitle;
+        this.titleColor = titleColor;
+        this.subtitleColor = subtitleColor;
     }
 
     @Override
@@ -46,7 +54,7 @@ public class TitleSubtitleData extends BaseViewTypeData {
         return titleColor;
     }
 
-    public void setTitleColor(int titleColor) {
+    public void setTitleColor(@ColorRes int titleColor) {
         this.titleColor = titleColor;
     }
 
@@ -54,7 +62,7 @@ public class TitleSubtitleData extends BaseViewTypeData {
         return subtitleColor;
     }
 
-    public void setSubtitleColor(int subtitleColor) {
+    public void setSubtitleColor(@ColorRes int subtitleColor) {
         this.subtitleColor = subtitleColor;
     }
 }

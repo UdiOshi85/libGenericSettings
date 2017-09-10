@@ -2,6 +2,7 @@ package com.oshi.libgenericsettings.adapter;
 import android.content.Context;
 import android.databinding.DataBindingUtil;
 import android.databinding.ViewDataBinding;
+import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
@@ -16,7 +17,11 @@ import com.oshi.libgenericsettings.viewholder.SettingsExpandableTitleItemsViewHo
 import com.oshi.libgenericsettings.viewholder.SettingsIconTitleViewHolder;
 import com.oshi.libgenericsettings.viewholder.SettingsDividerViewHolder;
 import com.oshi.libgenericsettings.viewholder.SettingsHeaderViewHolder;
+import com.oshi.libgenericsettings.viewholder.SettingsTitleCheckboxViewHolder;
 import com.oshi.libgenericsettings.viewholder.SettingsTitleIconSeekBarTextViewHolder;
+import com.oshi.libgenericsettings.viewholder.SettingsTitleSubtitleExtraCheckboxViewHolder;
+import com.oshi.libgenericsettings.viewholder.SettingsTitleSubtitleExtraSwitchViewHolder;
+import com.oshi.libgenericsettings.viewholder.SettingsTitleSubtitleExtraViewHolder;
 import com.oshi.libgenericsettings.viewholder.SettingsTitleSubtitleSwitchViewHolder;
 import com.oshi.libgenericsettings.viewholder.SettingsTitleSubtitleViewHolder;
 import com.oshi.libgenericsettings.viewholder.SettingsTitleSecondaryTitleViewHolder;
@@ -31,9 +36,15 @@ public class SettingsAdapter extends RecyclerView.Adapter<BaseSettingsViewHolder
 
     private List<BaseViewTypeData> dataList;
     private ISettingsPresenter presenter;
+    private Context context;
 
     public SettingsAdapter(Context context, ISettingsPresenter presenter) {
+        this.context = context;
+        setPresenter(presenter);
 
+    }
+
+    public void setPresenter(@NonNull ISettingsPresenter presenter) {
         this.dataList = presenter.getItems(context);
 
         if (this.dataList == null) {
@@ -96,6 +107,18 @@ public class SettingsAdapter extends RecyclerView.Adapter<BaseSettingsViewHolder
         } else if (viewType == BaseViewTypeData.VIEW_TYPE_SETTINGS_EXPANDABLE_TITLE_ITEMS_ACTION) {
             ViewDataBinding binding = DataBindingUtil.inflate(layoutInflater, R.layout.view_type_expandable_title_items, parent, false);
             return new SettingsExpandableTitleItemsViewHolder(binding);
+        } else if (viewType == BaseViewTypeData.VIEW_TYPE_SETTINGS_TITLE_CHECKBOX) {
+            ViewDataBinding binding = DataBindingUtil.inflate(layoutInflater, R.layout.view_type_title_checkbox, parent, false);
+            return new SettingsTitleCheckboxViewHolder(binding);
+        } else if (viewType == BaseViewTypeData.VIEW_TYPE_SETTINGS_TITLE_SUBTITLE_EXTRA) {
+            ViewDataBinding binding = DataBindingUtil.inflate(layoutInflater, R.layout.view_type_title_subtitle_extra, parent, false);
+            return new SettingsTitleSubtitleExtraViewHolder(binding);
+        } else if (viewType == BaseViewTypeData.VIEW_TYPE_SETTINGS_TITLE_SUBTITLE_EXTRA_CHECKBOX) {
+            ViewDataBinding binding = DataBindingUtil.inflate(layoutInflater, R.layout.view_type_title_subtitle_extra_checkbox, parent, false);
+            return new SettingsTitleSubtitleExtraCheckboxViewHolder(binding);
+        } else if (viewType == BaseViewTypeData.VIEW_TYPE_SETTINGS_TITLE_SUBTITLE_EXTRA_SWITCH) {
+            ViewDataBinding binding = DataBindingUtil.inflate(layoutInflater, R.layout.view_type_title_subtitle_extra_switch, parent, false);
+            return new SettingsTitleSubtitleExtraSwitchViewHolder(binding);
         }
 
         return null;

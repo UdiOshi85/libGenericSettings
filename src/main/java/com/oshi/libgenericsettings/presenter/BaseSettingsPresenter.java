@@ -5,12 +5,16 @@ import android.view.View;
 
 import com.oshi.libgenericsettings.data.BaseViewTypeData;
 import com.oshi.libgenericsettings.data.ExpandableTitleSimpleItemsData;
+import com.oshi.libgenericsettings.data.TitleCheckboxData;
 import com.oshi.libgenericsettings.data.TitleIconSeekBarTextData;
 import com.oshi.libgenericsettings.data.TitleSecondaryTitleData;
-import com.oshi.libgenericsettings.data.TitleSubtitleCheckbox;
+import com.oshi.libgenericsettings.data.TitleSubtitleCheckboxData;
 import com.oshi.libgenericsettings.data.IconTitleData;
 import com.oshi.libgenericsettings.data.TitleData;
 import com.oshi.libgenericsettings.data.TitleSubtitleData;
+import com.oshi.libgenericsettings.data.TitleSubtitleExtraCheckboxData;
+import com.oshi.libgenericsettings.data.TitleSubtitleExtraData;
+import com.oshi.libgenericsettings.data.TitleSubtitleExtraSwitchData;
 import com.oshi.libgenericsettings.data.TitleSubtitleSwitchData;
 import com.oshi.libgenericsettings.data.TitleSwitchData;
 import com.oshi.libgenericsettings.data.TitleUpDownValueData;
@@ -39,7 +43,7 @@ public class BaseSettingsPresenter implements ISettingsPresenter {
     }
 
     @Override
-    public void onCheckboxTitleSubtitleClick(View view, TitleSubtitleCheckbox data, int position) {
+    public void onCheckboxTitleSubtitleClick(View view, TitleSubtitleCheckboxData data, int position) {
 
     }
 
@@ -75,6 +79,26 @@ public class BaseSettingsPresenter implements ISettingsPresenter {
 
     @Override
     public void onExpandableSimpleItemClicked(View view, ExpandableTitleSimpleItemsData data, int parentPosition, int subItemPosition) {
+
+    }
+
+    @Override
+    public void onTitleCheckboxClick(View view, TitleCheckboxData data, int position) {
+
+    }
+
+    @Override
+    public void onTitleSubtitleExtraClick(View view, TitleSubtitleExtraData data, int position) {
+
+    }
+
+    @Override
+    public void onTitleSubtitleExtraCheckboxClick(View view, TitleSubtitleExtraCheckboxData data, int position) {
+
+    }
+
+    @Override
+    public void onTitleSubtitleExtraSwitchClick(View view, TitleSubtitleExtraSwitchData data, int position) {
 
     }
 }

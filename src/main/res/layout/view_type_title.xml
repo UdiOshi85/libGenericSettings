@@ -29,7 +29,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@{titleData.title, default=`Title example here, Probably one of the longest titles ever`}"
-            android:textColor="@{titleData.titleColor > 0 ? context.getResources().getColor(titleData.titleColor) : @color/black}"
+            app:textColor="@{titleData.titleColor}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />

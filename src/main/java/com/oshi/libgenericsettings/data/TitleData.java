@@ -1,12 +1,14 @@
 package com.oshi.libgenericsettings.data;
 
+import android.support.annotation.ColorRes;
+
 /**
  * Settings Title data object. Being use in layout/view_type_title.xml
  */
 public class TitleData extends BaseViewTypeData {
 
     protected String title;
-    protected int titleColor;
+    protected @ColorRes int titleColor;
 
     @Override
     public int getViewType() {
@@ -17,7 +19,7 @@ public class TitleData extends BaseViewTypeData {
         this.title = title;
     }
 
-    public TitleData(String title, int titleColor) {
+    public TitleData(String title, @ColorRes int titleColor) {
         this.title = title;
         this.titleColor = titleColor;
     }
@@ -34,7 +36,7 @@ public class TitleData extends BaseViewTypeData {
         return titleColor;
     }
 
-    public void setTitleColor(int titleColor) {
+    public void setTitleColor(@ColorRes int titleColor) {
         this.titleColor = titleColor;
     }
 }

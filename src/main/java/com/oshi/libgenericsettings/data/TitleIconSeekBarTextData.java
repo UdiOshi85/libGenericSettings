@@ -63,10 +63,4 @@ public class TitleIconSeekBarTextData extends IconTitleData {
     public int getViewType() {
         return VIEW_TYPE_SETTINGS_TITLE_ICON_SEEKBAR;
     }
-
-    /*public void onValueChanged(SeekBar seekBar, int progresValue, boolean fromUser) {
-        if (fromUser) {
-            setSeekBarCurrentProgress(progresValue);
-        }
-    }*/
 }

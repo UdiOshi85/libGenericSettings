@@ -40,7 +40,7 @@
             android:layout_marginStart="@dimen/dimen_32_dp"
             android:layout_marginLeft="@dimen/dimen_32_dp"
             android:text="@{iconTitleData.title, default=`Title example here, Probably one of the longest titles ever`}"
-            android:textColor="@{iconTitleData.titleColor > 0 ? context.getResources().getColor(iconTitleData.titleColor) : @color/black}"
+            app:textColor="@{iconTitleData.titleColor}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/icon"
             app:layout_constraintTop_toTopOf="parent" />
