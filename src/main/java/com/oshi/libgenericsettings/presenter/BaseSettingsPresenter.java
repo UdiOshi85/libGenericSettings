@@ -8,6 +8,7 @@ import com.oshi.libgenericsettings.data.ExpandableTitleSimpleItemsData;
 import com.oshi.libgenericsettings.data.TitleCheckboxData;
 import com.oshi.libgenericsettings.data.TitleIconSeekBarTextData;
 import com.oshi.libgenericsettings.data.TitleSecondaryTitleData;
+import com.oshi.libgenericsettings.data.TitleSeekBarMinMaxData;
 import com.oshi.libgenericsettings.data.TitleSubtitleCheckboxData;
 import com.oshi.libgenericsettings.data.IconTitleData;
 import com.oshi.libgenericsettings.data.TitleData;
@@ -99,6 +100,11 @@ public class BaseSettingsPresenter implements ISettingsPresenter {
 
     @Override
     public void onTitleSubtitleExtraSwitchClick(View view, TitleSubtitleExtraSwitchData data, int position) {
+
+    }
+
+    @Override
+    public void onTitleSeekBarMinMaxChanged(View view, TitleSeekBarMinMaxData data, int position) {
 
     }
 }

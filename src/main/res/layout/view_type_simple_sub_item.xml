@@ -10,11 +10,11 @@
 
         <variable
             name="parentPosition"
-            type="Integer"/>
+            type="int"/>
 
         <variable
             name="itemPosition"
-            type="java.lang.Integer" />
+            type="int" />
 
         <variable
             name="settingsPresenter"

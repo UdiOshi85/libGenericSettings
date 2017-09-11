@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="titleSeekBarMinMaxData"
+            type="com.oshi.libgenericsettings.data.TitleSeekBarMinMaxData" />
+
+        <variable
+            name="settingsPresenter"
+            type="com.oshi.libgenericsettings.presenter.ISettingsPresenter" />
+
+        <variable
+            name="itemPosition"
+            type="int" />
+
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        style="@style/RootView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/title"
+            style="@style/Settings.Title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:textColor="@{titleSeekBarMinMaxData.titleColor}"
+            android:text="@{titleSeekBarMinMaxData.title, default=`Title example here, But it's very very very long to check`}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginBottom="@dimen/dimen_8_dp"
+            app:layout_constraintBottom_toTopOf="@+id/minText"
+            app:layout_constraintVertical_chainStyle="packed"
+            tools:layout_editor_absoluteX="16dp" />
+
+        <TextView
+            android:id="@+id/minText"
+            android:text="@{String.valueOf(titleSeekBarMinMaxData.minValue), default=`0`}"
+            app:textColor="@{titleSeekBarMinMaxData.minMaxColor}"
+            app:layout_constraintTop_toBottomOf="@+id/title"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:textStyle="bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:layout_editor_absoluteX="0dp" />
+
+        <android.support.v7.widget.AppCompatSeekBar
+            android:id="@+id/seekBar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:max="@{titleSeekBarMinMaxData.calculatedMaxValue}"
+            android:progress="@{titleSeekBarMinMaxData.internalProgress}"
+            app:seekBarColor="@{titleSeekBarMinMaxData.seekBarColor}"
+            app:seekBarThumbColor="@{titleSeekBarMinMaxData.seekBarThumbColor}"
+            app:layout_constraintEnd_toStartOf="@+id/maxText"
+            app:layout_constraintStart_toEndOf="@+id/minText"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/minText"
+            tools:layout_editor_absoluteX="16dp" />
+
+        <TextView
+            android:id="@+id/maxText"
+            android:text="@{String.valueOf(titleSeekBarMinMaxData.maxValue), default=`0`}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/minText"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:textStyle="bold"
+            app:textColor="@{titleSeekBarMinMaxData.minMaxColor}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:layout_editor_absoluteX="344dp" />
+
+
+    </android.support.constraint.ConstraintLayout>
+</layout>

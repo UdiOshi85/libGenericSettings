@@ -21,6 +21,7 @@ public abstract class BaseViewTypeData {
     public static final int VIEW_TYPE_SETTINGS_TITLE_SUBTITLE_EXTRA = 15;
     public static final int VIEW_TYPE_SETTINGS_TITLE_SUBTITLE_EXTRA_CHECKBOX = 16;
     public static final int VIEW_TYPE_SETTINGS_TITLE_SUBTITLE_EXTRA_SWITCH = 17;
+    public static final int VIEW_TYPE_SETTINGS_TITLE_SEEKBAR_MIN_MAX = 18;
 
 
     public abstract int getViewType();

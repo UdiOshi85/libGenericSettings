@@ -19,6 +19,7 @@ import com.oshi.libgenericsettings.viewholder.SettingsDividerViewHolder;
 import com.oshi.libgenericsettings.viewholder.SettingsHeaderViewHolder;
 import com.oshi.libgenericsettings.viewholder.SettingsTitleCheckboxViewHolder;
 import com.oshi.libgenericsettings.viewholder.SettingsTitleIconSeekBarTextViewHolder;
+import com.oshi.libgenericsettings.viewholder.SettingsTitleSeekbarMinMaxViewHolder;
 import com.oshi.libgenericsettings.viewholder.SettingsTitleSubtitleExtraCheckboxViewHolder;
 import com.oshi.libgenericsettings.viewholder.SettingsTitleSubtitleExtraSwitchViewHolder;
 import com.oshi.libgenericsettings.viewholder.SettingsTitleSubtitleExtraViewHolder;
@@ -119,6 +120,9 @@ public class SettingsAdapter extends RecyclerView.Adapter<BaseSettingsViewHolder
         } else if (viewType == BaseViewTypeData.VIEW_TYPE_SETTINGS_TITLE_SUBTITLE_EXTRA_SWITCH) {
             ViewDataBinding binding = DataBindingUtil.inflate(layoutInflater, R.layout.view_type_title_subtitle_extra_switch, parent, false);
             return new SettingsTitleSubtitleExtraSwitchViewHolder(binding);
+        } else if (viewType == BaseViewTypeData.VIEW_TYPE_SETTINGS_TITLE_SEEKBAR_MIN_MAX) {
+            ViewDataBinding binding = DataBindingUtil.inflate(layoutInflater, R.layout.view_type_title_seekbar_min_max, parent, false);
+            return new SettingsTitleSeekbarMinMaxViewHolder(binding);
         }
 
         return null;

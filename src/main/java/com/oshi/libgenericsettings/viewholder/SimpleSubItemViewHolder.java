@@ -7,10 +7,6 @@ import com.oshi.libgenericsettings.BR;
 import com.oshi.libgenericsettings.data.ExpandableTitleSimpleItemsData;
 import com.oshi.libgenericsettings.presenter.ISettingsPresenter;
 
-/**
- * Created by udioshi on 8/31/2017.
- */
-
 public class SimpleSubItemViewHolder extends RecyclerView.ViewHolder {
 
     private ViewDataBinding viewDataBinding;

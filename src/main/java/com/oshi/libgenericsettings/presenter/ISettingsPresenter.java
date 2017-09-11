@@ -8,6 +8,7 @@ import com.oshi.libgenericsettings.data.ExpandableTitleSimpleItemsData;
 import com.oshi.libgenericsettings.data.TitleCheckboxData;
 import com.oshi.libgenericsettings.data.TitleIconSeekBarTextData;
 import com.oshi.libgenericsettings.data.TitleSecondaryTitleData;
+import com.oshi.libgenericsettings.data.TitleSeekBarMinMaxData;
 import com.oshi.libgenericsettings.data.TitleSubtitleCheckboxData;
 import com.oshi.libgenericsettings.data.IconTitleData;
 import com.oshi.libgenericsettings.data.TitleData;
@@ -55,6 +56,8 @@ public interface ISettingsPresenter {
     void onTitleSubtitleExtraCheckboxClick(View view, TitleSubtitleExtraCheckboxData data, int position);
 
     void onTitleSubtitleExtraSwitchClick(View view, TitleSubtitleExtraSwitchData data, int position);
+
+    void onTitleSeekBarMinMaxChanged(View view, TitleSeekBarMinMaxData data, int position);
 
     List<BaseViewTypeData> getItems(Context context);
 

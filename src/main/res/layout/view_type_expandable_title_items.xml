@@ -11,7 +11,7 @@
 
         <variable
             name="itemPosition"
-            type="java.lang.Integer" />
+            type="int" />
 
         <import type="android.view.View" />
 

@@ -15,5 +15,6 @@
     <color name="light_green">#80007F00</color>
     <color name="red_disabled">#ff9999</color>
     <color name="red_text">#ff3232</color>
+    <color name="cyan">#00FFFF</color>
 
 </resources>
