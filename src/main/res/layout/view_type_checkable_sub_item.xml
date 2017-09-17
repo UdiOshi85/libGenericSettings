@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="expandableTitleCheckableItemsData"
+            type="com.oshi.libgenericsettings.data.ExpandableTitleCheckableItemsData" />
+
+        <variable
+            name="parentPosition"
+            type="int" />
+
+        <variable
+            name="itemPosition"
+            type="int" />
+
+        <variable
+            name="settingsPresenter"
+            type="com.oshi.libgenericsettings.presenter.ISettingsPresenter" />
+
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        style="@style/Settings.SubItemRootView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="@{(view) -> settingsPresenter.onExpandableCheckableItemClicked(view, expandableTitleCheckableItemsData, parentPosition, itemPosition)}"
+        android:background="?attr/selectableItemBackground">
+
+        <android.support.v7.widget.AppCompatCheckBox
+            android:id="@+id/checkbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="false"
+            app:checkboxColor="@{expandableTitleCheckableItemsData.checkboxColor}"
+            android:checked="@{expandableTitleCheckableItemsData.items.get(itemPosition).checked}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <TextView
+            android:id="@+id/simpleSubItem"
+            style="@style/Settings.SubItemView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/checkbox"
+            app:textColor="@{expandableTitleCheckableItemsData.itemsColor}"
+            android:text="@{expandableTitleCheckableItemsData.items.get(itemPosition).title, default=`Simple sub item`}"
+            android:layout_width="@dimen/dimen_0_dp"
+            android:layout_height="wrap_content" />
+
+    </android.support.constraint.ConstraintLayout>
+</layout>

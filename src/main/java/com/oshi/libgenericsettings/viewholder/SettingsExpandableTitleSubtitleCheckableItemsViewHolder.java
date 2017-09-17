@@ -7,43 +7,39 @@ import android.view.View;
 
 import com.oshi.libgenericsettings.BR;
 import com.oshi.libgenericsettings.R;
-import com.oshi.libgenericsettings.adapter.SimpleSubItemsAdapter;
-import com.oshi.libgenericsettings.data.ExpandableTitleSimpleItemsData;
+import com.oshi.libgenericsettings.adapter.CheckableSubItemsAdapter;
+import com.oshi.libgenericsettings.data.ExpandableTitleSubtitleCheckableItemsData;
 import com.oshi.libgenericsettings.helper.AnimationUtils;
 import com.oshi.libgenericsettings.presenter.ISettingsPresenter;
 
-/**
- * Created by udioshi on 8/29/2017.
- */
-public class SettingsExpandableTitleItemsViewHolder extends BaseSettingsViewHolder<ExpandableTitleSimpleItemsData> {
+public class SettingsExpandableTitleSubtitleCheckableItemsViewHolder extends BaseSettingsViewHolder<ExpandableTitleSubtitleCheckableItemsData> {
 
     private View clickContainer;
     private View expandButton;
     private View expandableContainer;
     private RecyclerView itemsList;
-    private SimpleSubItemsAdapter adapter;
+    private CheckableSubItemsAdapter adapter;
 
-    public SettingsExpandableTitleItemsViewHolder(ViewDataBinding viewDataBinding) {
+    public SettingsExpandableTitleSubtitleCheckableItemsViewHolder(ViewDataBinding viewDataBinding) {
         super(viewDataBinding);
 
         clickContainer = viewDataBinding.getRoot().findViewById(R.id.clickContainer);
         expandButton = viewDataBinding.getRoot().findViewById(R.id.expandButton);
         expandableContainer = viewDataBinding.getRoot().findViewById(R.id.expandableContainer);
-        itemsList = (RecyclerView) viewDataBinding.getRoot().findViewById(R.id.itemsList);
+        itemsList = viewDataBinding.getRoot().findViewById(R.id.itemsList);
         itemsList.setHasFixedSize(true);
         itemsList.setLayoutManager(new LinearLayoutManager(itemsList.getContext(), LinearLayoutManager.VERTICAL, false));
     }
 
     @Override
-    public void onBind(final ExpandableTitleSimpleItemsData data, ISettingsPresenter presenter, int position) {
-        viewDataBinding.setVariable(BR.expandableTitleSimpleItemsData, data);
+    public void onBind(final ExpandableTitleSubtitleCheckableItemsData data, ISettingsPresenter presenter, int position) {
+        viewDataBinding.setVariable(BR.expandableTitleSubtitleCheckableItemsData, data);
         viewDataBinding.setVariable(BR.settingsPresenter, presenter);
         viewDataBinding.setVariable(BR.itemPosition, position);
         viewDataBinding.executePendingBindings();
 
-        adapter = new SimpleSubItemsAdapter(data, position, presenter);
+        adapter = new CheckableSubItemsAdapter(data, position, presenter);
         itemsList.setAdapter(adapter);
-
 
         clickContainer.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -61,4 +57,5 @@ public class SettingsExpandableTitleItemsViewHolder extends BaseSettingsViewHold
         });
 
     }
+
 }

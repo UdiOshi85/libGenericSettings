@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.View;
 
 import com.oshi.libgenericsettings.data.BaseViewTypeData;
+import com.oshi.libgenericsettings.data.ExpandableTitleCheckableItemsData;
 import com.oshi.libgenericsettings.data.ExpandableTitleSimpleItemsData;
 import com.oshi.libgenericsettings.data.TitleCheckboxData;
 import com.oshi.libgenericsettings.data.TitleIconSeekBarTextData;
@@ -105,6 +106,11 @@ public class BaseSettingsPresenter implements ISettingsPresenter {
 
     @Override
     public void onTitleSeekBarMinMaxChanged(View view, TitleSeekBarMinMaxData data, int position) {
+
+    }
+
+    @Override
+    public void onExpandableCheckableItemClicked(View view, ExpandableTitleCheckableItemsData data, int parentPosition, int subItemPosition) {
 
     }
 }

@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.View;
 
 import com.oshi.libgenericsettings.data.BaseViewTypeData;
+import com.oshi.libgenericsettings.data.ExpandableTitleCheckableItemsData;
 import com.oshi.libgenericsettings.data.ExpandableTitleSimpleItemsData;
 import com.oshi.libgenericsettings.data.TitleCheckboxData;
 import com.oshi.libgenericsettings.data.TitleIconSeekBarTextData;
@@ -48,6 +49,8 @@ public interface ISettingsPresenter {
     void onTitleUpDownValueChanged(View view, TitleUpDownValueData data, int position);
 
     void onExpandableSimpleItemClicked(View view, ExpandableTitleSimpleItemsData data, int parentPosition, int subItemPosition);
+
+    void onExpandableCheckableItemClicked(View view, ExpandableTitleCheckableItemsData data, int parentPosition, int subItemPosition);
 
     void onTitleCheckboxClick(View view, TitleCheckboxData data, int position);
 

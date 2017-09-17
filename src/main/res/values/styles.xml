@@ -13,7 +13,7 @@
         <item name="android:paddingBottom">@dimen/dimen_16_dp</item>
     </style>
 
-    <style name="Settings.BaseSubItemView">
+    <style name="Settings.SubItemRootView">
         <item name="android:paddingTop">@dimen/dimen_4_dp</item>
         <item name="android:paddingBottom">@dimen/dimen_4_dp</item>
     </style>
@@ -23,11 +23,6 @@
         <item name="android:paddingRight">@dimen/dimen_16_dp</item>
     </style>
 
-    <style name="SubItemView" parent="Settings.BaseSubItemView">
-        <item name="android:paddingLeft">@dimen/dimen_8_dp</item>
-        <item name="android:paddingRight">@dimen/dimen_8_dp</item>
-    </style>
-    
     <style name="Settings.Header">
         <item name="android:textStyle">bold</item>
         <item name="android:paddingTop">@dimen/dimen_16_dp</item>
@@ -42,7 +37,7 @@
         <item name="android:ellipsize">end</item>
     </style>
 
-    <style name="Settings.SimpleSubItem">
+    <style name="Settings.SubItemView">
         <item name="android:textSize">14sp</item>
         <item name="android:maxLines">1</item>
         <item name="android:ellipsize">end</item>

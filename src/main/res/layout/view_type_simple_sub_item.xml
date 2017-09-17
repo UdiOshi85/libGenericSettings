@@ -22,18 +22,16 @@
     </data>
 
     <android.support.constraint.ConstraintLayout
-        style="@style/Settings.BaseSubItemView"
+        style="@style/Settings.SubItemRootView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="@dimen/dimen_4_dp"
-        android:paddingBottom="@dimen/dimen_4_dp"
         android:background="?attr/selectableItemBackground"
         android:onClick="@{(view) -> settingsPresenter.onExpandableSimpleItemClicked(view, expandableTitleSimpleItemsData, parentPosition, itemPosition)}"
         >
 
         <TextView
             android:id="@+id/simpleSubItem"
-            style="@style/Settings.SimpleSubItem"
+            style="@style/Settings.SubItemView"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:textColor="@{expandableTitleSimpleItemsData.itemsColor}"

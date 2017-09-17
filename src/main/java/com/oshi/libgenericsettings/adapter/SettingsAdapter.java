@@ -13,7 +13,10 @@ import com.oshi.libgenericsettings.data.BaseViewTypeData;
 import com.oshi.libgenericsettings.presenter.ISettingsPresenter;
 import com.oshi.libgenericsettings.viewholder.BaseSettingsViewHolder;
 import com.oshi.libgenericsettings.viewholder.SettingsCheckBoxTitleSubtitleViewHolder;
-import com.oshi.libgenericsettings.viewholder.SettingsExpandableTitleItemsViewHolder;
+import com.oshi.libgenericsettings.viewholder.SettingsExpandableTitleCheckableItemViewHolder;
+import com.oshi.libgenericsettings.viewholder.SettingsExpandableTitleSimpleItemsViewHolder;
+import com.oshi.libgenericsettings.viewholder.SettingsExpandableTitleSubtitleCheckableItemsViewHolder;
+import com.oshi.libgenericsettings.viewholder.SettingsExpandableTitleSubtitleSimpleItemsViewHolder;
 import com.oshi.libgenericsettings.viewholder.SettingsIconTitleViewHolder;
 import com.oshi.libgenericsettings.viewholder.SettingsDividerViewHolder;
 import com.oshi.libgenericsettings.viewholder.SettingsHeaderViewHolder;
@@ -105,9 +108,9 @@ public class SettingsAdapter extends RecyclerView.Adapter<BaseSettingsViewHolder
             ViewDataBinding binding = DataBindingUtil.inflate(
                     layoutInflater, R.layout.view_type_title_up_down_value, parent, false);
             return new SettingsTitleUpDownValueViewHolder(binding);
-        } else if (viewType == BaseViewTypeData.VIEW_TYPE_SETTINGS_EXPANDABLE_TITLE_ITEMS_ACTION) {
-            ViewDataBinding binding = DataBindingUtil.inflate(layoutInflater, R.layout.view_type_expandable_title_items, parent, false);
-            return new SettingsExpandableTitleItemsViewHolder(binding);
+        } else if (viewType == BaseViewTypeData.VIEW_TYPE_SETTINGS_EXPANDABLE_TITLE_SIMPLE_ITEMS) {
+            ViewDataBinding binding = DataBindingUtil.inflate(layoutInflater, R.layout.view_type_expandable_title_simple_items, parent, false);
+            return new SettingsExpandableTitleSimpleItemsViewHolder(binding);
         } else if (viewType == BaseViewTypeData.VIEW_TYPE_SETTINGS_TITLE_CHECKBOX) {
             ViewDataBinding binding = DataBindingUtil.inflate(layoutInflater, R.layout.view_type_title_checkbox, parent, false);
             return new SettingsTitleCheckboxViewHolder(binding);
@@ -123,6 +126,15 @@ public class SettingsAdapter extends RecyclerView.Adapter<BaseSettingsViewHolder
         } else if (viewType == BaseViewTypeData.VIEW_TYPE_SETTINGS_TITLE_SEEKBAR_MIN_MAX) {
             ViewDataBinding binding = DataBindingUtil.inflate(layoutInflater, R.layout.view_type_title_seekbar_min_max, parent, false);
             return new SettingsTitleSeekbarMinMaxViewHolder(binding);
+        } else if (viewType == BaseViewTypeData.VIEW_TYPE_SETTINGS_EXPANDABLE_TITLE_SUBTITLE_SIMPLE_ITEMS) {
+            ViewDataBinding binding = DataBindingUtil.inflate(layoutInflater, R.layout.view_type_expandable_title_subtitle_simple_items, parent, false);
+            return new SettingsExpandableTitleSubtitleSimpleItemsViewHolder(binding);
+        } else if (viewType == BaseViewTypeData.VIEW_TYPE_SETTINGS_EXPANDABLE_TITLE_CHECKABLE_ITEMS) {
+            ViewDataBinding binding = DataBindingUtil.inflate(layoutInflater, R.layout.view_type_expandable_title_checkable_items, parent, false);
+            return new SettingsExpandableTitleCheckableItemViewHolder(binding);
+        } else if (viewType == BaseViewTypeData.VIEW_TYPE_SETTINGS_EXPANDABLE_TITLE_SUBTITLE_CHECKABLE_ITEMS) {
+            ViewDataBinding binding = DataBindingUtil.inflate(layoutInflater, R.layout.view_type_expandable_title_subtitle_checkable_items, parent, false);
+            return new SettingsExpandableTitleSubtitleCheckableItemsViewHolder(binding);
         }
 
         return null;
