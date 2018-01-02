@@ -45,7 +45,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:checkboxColor="@{titleCheckboxData.checkboxColor}"
+            app:buttonTint="@{titleCheckboxData.checkboxColor}"
             android:clickable="false"
             android:checked="@{titleCheckboxData.isEnabled, default=false}"
             android:layout_width="wrap_content"

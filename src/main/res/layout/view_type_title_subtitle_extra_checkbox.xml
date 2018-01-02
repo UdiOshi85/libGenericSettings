@@ -30,7 +30,7 @@
             android:layout_height="wrap_content"
             android:clickable="false"
             android:checked="@{titleSubtitleExtraCheckboxData.isEnabled, default=false}"
-            app:checkboxColor="@{titleSubtitleExtraCheckboxData.checkboxColor}"
+            app:buttonTint="@{titleSubtitleExtraCheckboxData.checkboxColor}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />

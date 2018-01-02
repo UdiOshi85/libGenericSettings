@@ -34,7 +34,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:clickable="false"
-            app:checkboxColor="@{expandableTitleCheckableItemsData.checkboxColor}"
+            app:buttonTint="@{expandableTitleCheckableItemsData.checkboxColor}"
             android:checked="@{expandableTitleCheckableItemsData.items.get(itemPosition).checked}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"

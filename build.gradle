@@ -1,4 +1,7 @@
 apply plugin: 'com.android.library'
+apply plugin: "kotlin-android"
+apply plugin: 'kotlin-kapt'
+apply plugin: "kotlin-android-extensions"
 
 ext {
     bintrayRepo = 'maven'
@@ -49,11 +52,19 @@ android {
         }
     }
 }
-repositories {
-    maven {
-        url "https://maven.google.com"
+
+buildscript {
+    repositories {
+        google()
+        jcenter()
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.2.10"
     }
 }
+
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
@@ -65,9 +76,16 @@ dependencies {
     testCompile 'junit:junit:4.12'
 
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:1.2.10"
+
+    kapt "com.android.databinding:compiler:3.0.1"
+
+
 }
 
 tasks.withType(Javadoc).all { enabled = false }
 
 apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/installv1.gradle'
 apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/bintrayv1.gradle'
+
+
