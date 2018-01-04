@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="expandableTitleBulletItemsData"
+            type="com.oshi.libgenericsettings.data.ExpandableTitleBulletItemsData" />
+
+        <variable
+            name="parentPosition"
+            type="int"/>
+
+        <variable
+            name="itemPosition"
+            type="int" />
+
+        <variable
+            name="settingsPresenter"
+            type="com.oshi.libgenericsettings.presenter.ISettingsPresenter" />
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        style="@style/Settings.SubItemRootView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/selectableItemBackground"
+        android:onClick="@{(view) -> settingsPresenter.onExpandableBulletItemClicked(view, expandableTitleBulletItemsData, parentPosition, itemPosition)}"
+        >
+
+        <TextView
+            android:id="@+id/simpleSubItem"
+            style="@style/Settings.SubItemView"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:textColor="@{expandableTitleBulletItemsData.itemsColor}"
+            android:text="@{expandableTitleBulletItemsData.items.get(itemPosition), default=`Bullet sub item`}"
+            android:layout_width="@dimen/dimen_0_dp"
+            android:layout_height="wrap_content" />
+
+    </android.support.constraint.ConstraintLayout>
+
+</layout>

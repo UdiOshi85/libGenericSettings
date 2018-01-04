@@ -66,7 +66,7 @@ class BindingAdapterHelper {
         }
 
         @JvmStatic
-        @BindingAdapter("app:buttonTint")
+        @BindingAdapter("buttonTint")
         fun setButtonTint(checkbox: AppCompatCheckBox, color: Int) {
             if (color != 0) {
                 CompoundButtonCompat.setButtonTintList(checkbox, ContextCompat.getColorStateList(checkbox.context, color))

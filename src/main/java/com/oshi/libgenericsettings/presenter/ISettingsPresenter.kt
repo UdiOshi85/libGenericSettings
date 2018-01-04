@@ -4,9 +4,7 @@ import android.content.Context
 import android.view.View
 import com.oshi.libgenericsettings.data.*
 
-/**
- * Created by udioshi on 1/1/2018.
- */
+
 interface ISettingsPresenter {
 
     interface OnSettingsChangedListener {
@@ -32,6 +30,8 @@ interface ISettingsPresenter {
     fun onTitleUpDownValueChanged(view: View, data: TitleUpDownValueData, position: Int)
 
     fun onExpandableSimpleItemClicked(view: View, data: ExpandableTitleSimpleItemsData, parentPosition: Int, subItemPosition: Int)
+
+    fun onExpandableBulletItemClicked(view: View, data: ExpandableTitleBulletItemsData, parentPosition: Int, subItemPosition: Int)
 
     fun onExpandableCheckableItemClicked(view: View, data: ExpandableTitleCheckableItemsData, parentPosition: Int, subItemPosition: Int)
 

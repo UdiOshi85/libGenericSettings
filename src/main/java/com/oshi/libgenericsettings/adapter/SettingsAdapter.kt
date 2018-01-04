@@ -14,7 +14,6 @@ import com.oshi.libgenericsettings.viewholder.*
 
 class SettingsAdapter(var context: Context, var presenter: ISettingsPresenter) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
-
     var dataList: List<BaseViewTypeData> = presenter.getItems(context)
 
     init {
@@ -23,12 +22,23 @@ class SettingsAdapter(var context: Context, var presenter: ISettingsPresenter) :
         }
     }
 
+    @Suppress("UNCHECKED_CAST")
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         (holder as BaseSettingsViewHolder<BaseViewTypeData>).onBind(dataList[position], presenter, position)
     }
 
     override fun getItemCount(): Int {
         return dataList.size
+    }
+
+    override fun getItemViewType(position: Int): Int {
+        return dataList[position].getViewType()
+    }
+
+    fun replacePresenterAndNotify(newPresenter : ISettingsPresenter) {
+        this.presenter = newPresenter
+        this.dataList = presenter.getItems(context)
+        notifyDataSetChanged()
     }
 
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): RecyclerView.ViewHolder? {
@@ -124,6 +134,10 @@ class SettingsAdapter(var context: Context, var presenter: ISettingsPresenter) :
             BaseViewTypeData.VIEW_TYPE_SETTINGS_EXPANDABLE_TITLE_SUBTITLE_CHECKABLE_ITEMS -> {
                 val binding = DataBindingUtil.inflate<ViewDataBinding>(layoutInflater, R.layout.view_type_expandable_title_subtitle_checkable_items, parent, false)
                 SettingsExpandableTitleSubtitleCheckableItemsViewHolder(binding)
+            }
+            BaseViewTypeData.VIEW_TYPE_SETTINGS_EXPANDABLE_TITLE_BULLET_ITEMS -> {
+                val binding = DataBindingUtil.inflate<ViewDataBinding>(layoutInflater, R.layout.view_type_expandable_title_bullet_items, parent, false)
+                SettingsExpandableTitleBulletItemsViewHolder(binding)
             }
             else -> {
                 null

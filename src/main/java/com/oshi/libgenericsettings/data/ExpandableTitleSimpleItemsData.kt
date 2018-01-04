@@ -3,7 +3,7 @@ package com.oshi.libgenericsettings.data
 import android.support.annotation.ColorRes
 
 /**
- * Expandable Title with simple (Only String) sub items. Being use in layout/view_type_expandable_title_simple_itemse_items.xml
+ * Expandable Title with simple (Only String) sub items. Being use in layout/view_type_expandable_title_simple_items.xml
  */
 open class ExpandableTitleSimpleItemsData(val title: String, items : List<String>) : BaseExpandableData<String>(items) {
 
