@@ -14,6 +14,8 @@ import android.support.v7.widget.AppCompatSeekBar
 import android.support.v7.widget.SwitchCompat
 import android.view.View
 import android.widget.TextView
+import com.oshi.libgenericsettings.R
+import com.oshi.libgenericsettings.data.ExpandableTitleBulletItemsData
 import com.oshi.libgenericsettings.data.TitleSwitchData
 
 /**
@@ -115,10 +117,12 @@ class BindingAdapterHelper {
                 }
             }
         }
+
+        @JvmStatic
+        @BindingAdapter("textWithBullet")
+        fun setTextWithBullet(textView : TextView, text: String) {
+            textView.text = textView.context.getString(R.string.bullet).plus(" ").plus(text)
+        }
     }
-
-
-
-
 
 }

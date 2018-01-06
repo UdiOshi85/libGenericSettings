@@ -14,7 +14,7 @@ import com.oshi.libgenericsettings.viewholder.*
 
 class SettingsAdapter(var context: Context, var presenter: ISettingsPresenter) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
-    var dataList: List<BaseViewTypeData> = presenter.getItems(context)
+    private var dataList: List<BaseViewTypeData> = presenter.getItems(context)
 
     init {
         if (dataList.isEmpty()) {

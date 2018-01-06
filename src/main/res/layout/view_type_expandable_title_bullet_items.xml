@@ -6,7 +6,7 @@
     <data>
 
         <variable
-            name="expandableTitleBulletsItemsData"
+            name="expandableTitleBulletItemsData"
             type="com.oshi.libgenericsettings.data.ExpandableTitleBulletItemsData" />
 
         <variable
@@ -37,8 +37,8 @@
                 style="@style/Settings.Title"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="@{expandableTitleBulletsItemsData.title, default=`Title example here, But it's very very very long to check`}"
-                app:textColor="@{expandableTitleBulletsItemsData.titleColor}"
+                android:text="@{expandableTitleBulletItemsData.title, default=`Title example here, But it's very very very long to check`}"
+                app:textColor="@{expandableTitleBulletItemsData.titleColor}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/expandButton"
                 app:layout_constraintStart_toStartOf="parent"
@@ -51,7 +51,7 @@
                 app:layout_constraintBottom_toBottomOf="@+id/title"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/title"
-                app:tint="@{expandableTitleBulletsItemsData.iconColor}"
+                app:tint="@{expandableTitleBulletItemsData.iconColor}"
                 app:srcCompat="@drawable/ic_expand_more_black_24dp" />
 
 
@@ -66,7 +66,7 @@
             android:paddingRight="@dimen/dimen_16_dp"
             android:paddingEnd="@dimen/dimen_16_dp"
             android:animateLayoutChanges="true"
-            android:visibility="@{expandableTitleBulletsItemsData.expanded? View.VISIBLE : View.GONE}"
+            android:visibility="@{expandableTitleBulletItemsData.expanded? View.VISIBLE : View.GONE}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -77,8 +77,8 @@
                 android:id="@+id/divider"
                 android:layout_width="0dp"
                 android:layout_height="1dp"
-                app:backgroundColor="@{expandableTitleBulletsItemsData.dividerColor}"
-                android:visibility="@{expandableTitleBulletsItemsData.shouldShowDivider ? View.VISIBLE : View.GONE }"
+                app:backgroundColor="@{expandableTitleBulletItemsData.dividerColor}"
+                android:visibility="@{expandableTitleBulletItemsData.shouldShowDivider ? View.VISIBLE : View.GONE }"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"

@@ -28,7 +28,7 @@ class SettingsExpandableTitleBulletItemsViewHolder(viewDataBinding: ViewDataBind
 
 
     override fun onBind(data: ExpandableTitleBulletItemsData, presenter: ISettingsPresenter, position: Int) {
-        viewDataBinding.setVariable(BR.expandableTitleBulletsItemsData, data)
+        viewDataBinding.setVariable(BR.expandableTitleBulletItemsData, data)
         viewDataBinding.setVariable(BR.settingsPresenter, presenter)
         viewDataBinding.setVariable(BR.itemPosition, position)
         viewDataBinding.executePendingBindings()

@@ -35,7 +35,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:textColor="@{expandableTitleBulletItemsData.itemsColor}"
-            android:text="@{expandableTitleBulletItemsData.items.get(itemPosition), default=`Bullet sub item`}"
+            app:textWithBullet="@{expandableTitleBulletItemsData.items.get(itemPosition)}"
             android:layout_width="@dimen/dimen_0_dp"
             android:layout_height="wrap_content" />
 
