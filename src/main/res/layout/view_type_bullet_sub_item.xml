@@ -4,6 +4,8 @@
 
     <data>
 
+        <!-- Keep this variable same name as exist in view_type_expandable_title_bullet_items.xml.xml
+                to avoid data binding conflicts -->
         <variable
             name="expandableTitleBulletItemsData"
             type="com.oshi.libgenericsettings.data.ExpandableTitleBulletItemsData" />

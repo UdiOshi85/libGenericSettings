@@ -5,6 +5,9 @@
 
     <data>
 
+        <!-- Keep this varable same name as exist in view_type_bullet_sub_item.xml
+                to avoid data binding conflicts -->
+
         <variable
             name="expandableTitleBulletItemsData"
             type="com.oshi.libgenericsettings.data.ExpandableTitleBulletItemsData" />
@@ -38,11 +41,11 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:text="@{expandableTitleBulletItemsData.title, default=`Title example here, But it's very very very long to check`}"
-                app:textColor="@{expandableTitleBulletItemsData.titleColor}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/expandButton"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:textColor="@{expandableTitleBulletItemsData.titleColor}" />
 
             <android.support.v7.widget.AppCompatImageView
                 android:id="@+id/expandButton"
@@ -51,8 +54,8 @@
                 app:layout_constraintBottom_toBottomOf="@+id/title"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/title"
-                app:tint="@{expandableTitleBulletItemsData.iconColor}"
-                app:srcCompat="@drawable/ic_expand_more_black_24dp" />
+                app:srcCompat="@drawable/ic_expand_more_black_24dp"
+                app:tint="@{expandableTitleBulletItemsData.iconColor}" />
 
 
         </android.support.constraint.ConstraintLayout>
@@ -61,11 +64,11 @@
             android:id="@+id/expandableContainer"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:paddingLeft="@dimen/dimen_16_dp"
-            android:paddingStart="@dimen/dimen_16_dp"
-            android:paddingRight="@dimen/dimen_16_dp"
-            android:paddingEnd="@dimen/dimen_16_dp"
             android:animateLayoutChanges="true"
+            android:paddingEnd="@dimen/dimen_16_dp"
+            android:paddingLeft="@dimen/dimen_16_dp"
+            android:paddingRight="@dimen/dimen_16_dp"
+            android:paddingStart="@dimen/dimen_16_dp"
             android:visibility="@{expandableTitleBulletItemsData.expanded? View.VISIBLE : View.GONE}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -77,8 +80,8 @@
                 android:id="@+id/divider"
                 android:layout_width="0dp"
                 android:layout_height="1dp"
-                app:backgroundColor="@{expandableTitleBulletItemsData.dividerColor}"
                 android:visibility="@{expandableTitleBulletItemsData.shouldShowDivider ? View.VISIBLE : View.GONE }"
+                app:backgroundColor="@{expandableTitleBulletItemsData.dividerColor}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
