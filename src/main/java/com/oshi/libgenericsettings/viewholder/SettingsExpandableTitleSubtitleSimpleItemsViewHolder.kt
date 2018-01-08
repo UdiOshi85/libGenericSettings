@@ -11,9 +11,6 @@ import com.oshi.libgenericsettings.data.ExpandableTitleSubtitleSimpleItemsData
 import com.oshi.libgenericsettings.helper.AnimationUtils
 import com.oshi.libgenericsettings.presenter.ISettingsPresenter
 
-/**
- * Created by udioshi on 1/1/2018.
- */
 class SettingsExpandableTitleSubtitleSimpleItemsViewHolder(viewDataBinding: ViewDataBinding) : BaseSettingsViewHolder<ExpandableTitleSubtitleSimpleItemsData>(viewDataBinding) {
 
     var clickContainer : View = viewDataBinding.root.findViewById(R.id.clickContainer)
@@ -32,7 +29,7 @@ class SettingsExpandableTitleSubtitleSimpleItemsViewHolder(viewDataBinding: View
         viewDataBinding.setVariable(BR.itemPosition, position)
         viewDataBinding.executePendingBindings()
 
-        var adapter = SimpleSubItemsAdapter(data, position, presenter)
+        val adapter = SimpleSubItemsAdapter(data, position, presenter)
         itemsList.adapter = adapter
 
         clickContainer.setOnClickListener {
@@ -46,5 +43,4 @@ class SettingsExpandableTitleSubtitleSimpleItemsViewHolder(viewDataBinding: View
             data.isExpanded = !isExpanded
         }
     }
-
 }

@@ -22,7 +22,7 @@ class SettingsAdapter(var context: Context, var presenter: ISettingsPresenter) :
         }
     }
 
-    @Suppress("UNCHECKED_CAST")
+
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         (holder as BaseSettingsViewHolder<BaseViewTypeData>).onBind(dataList[position], presenter, position)
     }
@@ -138,6 +138,10 @@ class SettingsAdapter(var context: Context, var presenter: ISettingsPresenter) :
             BaseViewTypeData.VIEW_TYPE_SETTINGS_EXPANDABLE_TITLE_BULLET_ITEMS -> {
                 val binding = DataBindingUtil.inflate<ViewDataBinding>(layoutInflater, R.layout.view_type_expandable_title_bullet_items, parent, false)
                 SettingsExpandableTitleBulletItemsViewHolder(binding)
+            }
+            BaseViewTypeData.VIEW_TYPE_SETTINGS_EXPANDABLE_TITLE_SUBTITLE_BULLET_ITEMS -> {
+                val binding = DataBindingUtil.inflate<ViewDataBinding>(layoutInflater, R.layout.view_type_expandable_title_subtitle_bullet_items, parent, false)
+                SettingsExpandableTitleSubtitleBulletItemsViewHolder(binding)
             }
             else -> {
                 null
