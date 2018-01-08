@@ -22,7 +22,7 @@ class SettingsAdapter(var context: Context, var presenter: ISettingsPresenter) :
         }
     }
 
-
+    @Suppress("UNCHECKED_CAST")
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         (holder as BaseSettingsViewHolder<BaseViewTypeData>).onBind(dataList[position], presenter, position)
     }
