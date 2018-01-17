@@ -67,7 +67,7 @@ buildscript {
     }
 
     ext.versions = [
-            support : '27.0.2'
+            support : '27.0.2' // https://developer.android.com/topic/libraries/support-library/revisions.html
     ]
 }
 
