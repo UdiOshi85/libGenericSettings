@@ -12,7 +12,7 @@ import com.oshi.libgenericsettings.presenter.ISettingsPresenter
 abstract class BaseSettingsViewHolder<in T : BaseViewTypeData>(var viewDataBinding : ViewDataBinding) : RecyclerView.ViewHolder(viewDataBinding.root) {
 
     init {
-        GenericSettingsLib.getGenericSettingsAnalytics(itemView.context).sendEvent(ANALYTICS_CATEGORIES.CATEGORY_VIEW.categoryName, javaClass.simpleName)
+        GenericSettingsAnalytics.getInstance(itemView.context).sendEvent(ANALYTICS_CATEGORIES.CATEGORY_VIEW.categoryName, javaClass.simpleName)
     }
 
     abstract fun onBind(data: T, presenter: ISettingsPresenter, position: Int)
