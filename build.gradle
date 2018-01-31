@@ -62,7 +62,7 @@ buildscript {
 
     ext {
         support = '27.0.2' // https://developer.android.com/topic/libraries/support-library/revisions.html
-        kotlin = '1.2.20' // https://kotlinlang.org/docs/reference/using-gradle.html
+        kotlin = '1.2.21' // https://kotlinlang.org/docs/reference/using-gradle.html
         playServices = '11.8.0'
     }
 
