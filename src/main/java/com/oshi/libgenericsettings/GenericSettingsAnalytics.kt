@@ -6,9 +6,7 @@ import com.google.android.gms.analytics.HitBuilders
 import com.oshi.libgenericsettings.helper.ANALYTICS_ACTIONS
 import com.oshi.libgenericsettings.helper.ANALYTICS_CATEGORIES
 
-/**
- * Created by udioshi on 1/28/2018.
- */
+
 class GenericSettingsAnalytics private constructor(context : Context) {
 
     private val tracker = GoogleAnalytics.getInstance(context).newTracker(R.xml.global_tracker)

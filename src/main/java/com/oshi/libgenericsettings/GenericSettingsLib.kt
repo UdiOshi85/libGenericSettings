@@ -2,11 +2,8 @@ package com.oshi.libgenericsettings
 
 import android.content.Context
 
-/**
- * Created by udioshi on 1/30/2018.
- */
-class GenericSettingsLib {
 
+class GenericSettingsLib {
 
     companion object {
 
