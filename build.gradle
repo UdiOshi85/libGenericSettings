@@ -62,7 +62,7 @@ buildscript {
 
     ext {
         support = '27.0.2' // https://developer.android.com/topic/libraries/support-library/revisions.html
-        kotlin = '1.2.20' // https://kotlinlang.org/docs/reference/using-gradle.html
+        kotlin = '1.2.21' // https://kotlinlang.org/docs/reference/using-gradle.html
         playServices = '11.8.0'
     }
 
@@ -75,7 +75,6 @@ buildscript {
     dependencies {
         classpath 'com.android.tools.build:gradle:3.0.1'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin"
-        classpath 'com.google.gms:google-services:3.1.0'
     }
 }
 
@@ -95,8 +94,6 @@ dependencies {
 
     implementation 'com.android.support.constraint:constraint-layout:1.0.2'
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin"
-
-    implementation "com.google.android.gms:play-services-analytics:$playServices"
 
     // Used for getting data bind compile detailed error
     kapt "com.android.databinding:compiler:3.0.1"
