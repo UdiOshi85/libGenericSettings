@@ -47,4 +47,6 @@ interface ISettingsPresenter {
 
     fun getItems(context: Context): List<BaseViewTypeData>
 
+    fun onExpandCollapseClicked(position: Int)
+
 }

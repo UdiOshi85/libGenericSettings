@@ -26,7 +26,7 @@ class CheckableSubItemsAdapter(var data : ExpandableTitleCheckableItemsData, var
     }
 
     override fun onBindViewHolder(holder: CheckableSubItemViewHolder, position: Int) {
-        holder?.onBind(data, parentPosition, presenter, position)
+        holder.onBind(data, parentPosition, presenter, position)
     }
 
 }

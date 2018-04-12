@@ -32,9 +32,7 @@ open class BaseSettingsPresenter : ISettingsPresenter {
 
     override fun onExpandableCheckableItemClicked(view: View, data: ExpandableTitleCheckableItemsData, parentPosition: Int, subItemPosition: Int) {}
 
-    override fun onTitleCheckboxClick(view: View, data: TitleCheckboxData, position: Int) {
-
-    }
+    override fun onTitleCheckboxClick(view: View, data: TitleCheckboxData, position: Int) {}
 
     override fun onTitleSubtitleExtraClick(view: View, data: TitleSubtitleExtraData, position: Int) {}
 
@@ -46,9 +44,10 @@ open class BaseSettingsPresenter : ISettingsPresenter {
 
     override fun onExpandableBulletItemClicked(view: View, data: ExpandableTitleBulletItemsData, parentPosition: Int, subItemPosition: Int) {}
 
+
     override fun getItems(context: Context): List<BaseViewTypeData> {
         return emptyList()
     }
 
-
+    override fun onExpandCollapseClicked(position: Int) {}
 }
