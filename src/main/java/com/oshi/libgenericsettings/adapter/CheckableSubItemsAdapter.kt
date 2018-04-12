@@ -18,14 +18,14 @@ class CheckableSubItemsAdapter(var data : ExpandableTitleCheckableItemsData, var
         return data.items.size
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): CheckableSubItemViewHolder {
-        val layoutInflater = LayoutInflater.from(parent?.context)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CheckableSubItemViewHolder {
+        val layoutInflater = LayoutInflater.from(parent.context)
         val viewDataBinding = DataBindingUtil.inflate<ViewDataBinding>(layoutInflater, R.layout.view_type_checkable_sub_item, parent, false)
 
         return CheckableSubItemViewHolder(viewDataBinding)
     }
 
-    override fun onBindViewHolder(holder: CheckableSubItemViewHolder?, position: Int) {
+    override fun onBindViewHolder(holder: CheckableSubItemViewHolder, position: Int) {
         holder?.onBind(data, parentPosition, presenter, position)
     }
 

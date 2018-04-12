@@ -13,8 +13,8 @@ import com.oshi.libgenericsettings.viewholder.SimpleSubItemViewHolder
 
 class SimpleSubItemsAdapter(var data : ExpandableTitleSimpleItemsData, var parentPosition : Int, var presenter : ISettingsPresenter) : RecyclerView.Adapter<SimpleSubItemViewHolder>() {
 
-    override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): SimpleSubItemViewHolder {
-        val layoutInflater = LayoutInflater.from(parent?.context)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SimpleSubItemViewHolder {
+        val layoutInflater = LayoutInflater.from(parent.context)
         val viewDataBinding = DataBindingUtil.inflate<ViewDataBinding>(layoutInflater, R.layout.view_type_simple_sub_item, parent, false)
 
         return SimpleSubItemViewHolder(viewDataBinding)
@@ -24,8 +24,8 @@ class SimpleSubItemsAdapter(var data : ExpandableTitleSimpleItemsData, var paren
         return data.items.size
     }
 
-    override fun onBindViewHolder(holder: SimpleSubItemViewHolder?, position: Int) {
-        holder?.onBind(data, parentPosition, presenter, position)
+    override fun onBindViewHolder(holder: SimpleSubItemViewHolder, position: Int) {
+        holder.onBind(data, parentPosition, presenter, position)
     }
 
 

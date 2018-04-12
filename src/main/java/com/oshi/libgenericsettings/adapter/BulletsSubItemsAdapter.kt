@@ -16,13 +16,13 @@ class BulletsSubItemsAdapter(var data : ExpandableTitleBulletItemsData, var pare
         return data.items.size
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): BulletsSubItemViewHolder {
-        val layoutInflater = LayoutInflater.from(parent?.context)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BulletsSubItemViewHolder {
+        val layoutInflater = LayoutInflater.from(parent.context)
         val viewDataBinding = DataBindingUtil.inflate<ViewDataBinding>(layoutInflater, R.layout.view_type_bullet_sub_item, parent, false)
         return BulletsSubItemViewHolder(viewDataBinding)
     }
 
-    override fun onBindViewHolder(holder: BulletsSubItemViewHolder?, position: Int) {
-        holder?.onBind(data, parentPosition, presenter, position)
+    override fun onBindViewHolder(holder: BulletsSubItemViewHolder, position: Int) {
+        holder.onBind(data, parentPosition, presenter, position)
     }
 }

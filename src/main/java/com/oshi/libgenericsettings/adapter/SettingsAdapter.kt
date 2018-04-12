@@ -41,8 +41,8 @@ class SettingsAdapter(var context: Context, var presenter: ISettingsPresenter) :
         notifyDataSetChanged()
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): RecyclerView.ViewHolder? {
-        val layoutInflater = LayoutInflater.from(parent?.context)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
+        val layoutInflater = LayoutInflater.from(parent.context)
         return when (viewType) {
             BaseViewTypeData.VIEW_TYPE_SETTINGS_HEADER -> {
                 val binding = DataBindingUtil.inflate<ViewDataBinding>(
@@ -144,7 +144,10 @@ class SettingsAdapter(var context: Context, var presenter: ISettingsPresenter) :
                 SettingsExpandableTitleSubtitleBulletItemsViewHolder(binding)
             }
             else -> {
-                null
+                // TODO fix this ASAP
+                val binding = DataBindingUtil.inflate<ViewDataBinding>(
+                        layoutInflater, R.layout.view_type_divider, parent, false)
+                SettingsDividerViewHolder(binding)
             }
         }
     }
