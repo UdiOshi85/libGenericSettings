@@ -17,99 +17,88 @@
 
     </data>
 
-    <android.support.constraint.ConstraintLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
-
-        <android.support.constraint.ConstraintLayout
+        <LinearLayout
             android:id="@+id/clickContainer"
             style="@style/RootView"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintBottom_toTopOf="@+id/expandableContainer"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/title"
-                style="@style/Settings.Title"
+            <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="@{expandableTitleSubtitleCheckableItemsData.title, default=`Title example here, But it's very very very long to check`}"
-                app:textColor="@{expandableTitleSubtitleCheckableItemsData.titleColor}"
-                app:layout_constraintVertical_chainStyle="packed"
-                app:layout_constraintBottom_toTopOf="@+id/subtitle"
-                app:layout_constraintEnd_toStartOf="@+id/expandButton"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:layout_weight="1"
+                android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/subtitle"
-                style="@style/Settings.Title"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:text="@{expandableTitleSubtitleCheckableItemsData.subtitle, default=`Title example here, But it's very very very long to check`}"
-                app:textColor="@{expandableTitleSubtitleCheckableItemsData.subtitleColor}"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/expandButton"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/title" />
+                <TextView
+                    android:id="@+id/title"
+                    style="@style/Settings.Title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    tools:text="Title example here, But it's very very very long to check"
+                    android:text="@{expandableTitleSubtitleCheckableItemsData.title}"
+                    app:textColor="@{expandableTitleSubtitleCheckableItemsData.titleColor}" />
+
+                <TextView
+                    android:id="@+id/subtitle"
+                    style="@style/Settings.Title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    tools:text="Subtitle example here, But it's very very very long to check"
+                    android:text="@{expandableTitleSubtitleCheckableItemsData.subtitle}"
+                    app:textColor="@{expandableTitleSubtitleCheckableItemsData.subtitleColor}" />
+
+            </LinearLayout>
 
             <android.support.v7.widget.AppCompatImageView
                 android:id="@+id/expandButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:tint="@{expandableTitleSubtitleCheckableItemsData.iconColor}"
-                app:srcCompat="@drawable/ic_expand_more_black_24dp" />
+                app:srcCompat="@drawable/ic_expand_more_black_24dp"
+                app:tint="@{expandableTitleSubtitleCheckableItemsData.iconColor}" />
+
+        </LinearLayout>
 
 
-        </android.support.constraint.ConstraintLayout>
-
-        <android.support.constraint.ConstraintLayout
+        <LinearLayout
             android:id="@+id/expandableContainer"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:animateLayoutChanges="true"
-            android:paddingLeft="@dimen/dimen_16_dp"
-            android:paddingStart="@dimen/dimen_16_dp"
-            android:paddingRight="@dimen/dimen_16_dp"
+            android:orientation="vertical"
             android:paddingEnd="@dimen/dimen_16_dp"
-            android:visibility="@{expandableTitleSubtitleCheckableItemsData.expanded? View.VISIBLE : View.GONE}"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/clickContainer"
-            tools:layout_editor_absoluteX="16dp">
+            android:paddingLeft="@dimen/dimen_16_dp"
+            android:paddingRight="@dimen/dimen_16_dp"
+            android:paddingStart="@dimen/dimen_16_dp"
+            android:visibility="@{expandableTitleSubtitleCheckableItemsData.expanded? View.VISIBLE : View.GONE}">
 
             <View
                 android:id="@+id/divider"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="1dp"
-                app:backgroundColor="@{expandableTitleSubtitleCheckableItemsData.dividerColor}"
                 android:visibility="@{expandableTitleSubtitleCheckableItemsData.shouldShowDivider ? View.VISIBLE : View.GONE }"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:layout_editor_absoluteX="0dp" />
+                app:backgroundColor="@{expandableTitleSubtitleCheckableItemsData.dividerColor}"
+                tools:background="@color/divider" />
 
 
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/itemsList"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/divider"
                 tools:layout_editor_absoluteX="0dp" />
 
-        </android.support.constraint.ConstraintLayout>
+        </LinearLayout>
 
 
-    </android.support.constraint.ConstraintLayout>
+    </LinearLayout>
 
 </layout>

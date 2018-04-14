@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
         <variable
@@ -8,22 +9,20 @@
             type="com.oshi.libgenericsettings.data.HeaderData" />
     </data>
 
-    <android.support.constraint.ConstraintLayout
+    <FrameLayout
         style="@style/Settings.Header"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <TextView
             android:id="@+id/header"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@{headerData.headerName, default=`Header Example`}"
+            tools:text="Header Example"
+            android:text="@{headerData.headerName}"
             app:textColor="@{headerData.headerColor}"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:textStyle="bold" />
 
-    </android.support.constraint.ConstraintLayout>
+    </FrameLayout>
 
 </layout>

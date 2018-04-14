@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
@@ -18,7 +19,7 @@
 
     </data>
 
-    <android.support.constraint.ConstraintLayout
+    <LinearLayout
         style="@style/RootView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -29,24 +30,23 @@
             style="@style/Settings.Title"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="@{titleSecondaryTitleData.title, default=`Title example here`}"
+            android:layout_weight="1"
+            android:text="@{titleSecondaryTitleData.title}"
             app:textColor="@{titleSecondaryTitleData.titleColor}"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/secondaryTitle"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            tools:text="Title example here" />
 
         <TextView
             android:id="@+id/secondaryTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{titleSecondaryTitleData.secondaryTitle, default=`999`}"
-            app:textColor="@{titleSecondaryTitleData.secondaryTitleColor}"
+            android:text="@{titleSecondaryTitleData.secondaryTitle}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:textColor="@{titleSecondaryTitleData.secondaryTitleColor}"
+            tools:text="99" />
 
 
-    </android.support.constraint.ConstraintLayout>
+    </LinearLayout>
 
 </layout>

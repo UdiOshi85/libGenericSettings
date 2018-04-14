@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
@@ -21,7 +22,7 @@
             type="com.oshi.libgenericsettings.presenter.ISettingsPresenter" />
     </data>
 
-    <android.support.constraint.ConstraintLayout
+    <FrameLayout
         style="@style/Settings.SubItemRootView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -32,13 +33,12 @@
         <TextView
             android:id="@+id/simpleSubItem"
             style="@style/Settings.SubItemView"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
             app:textColor="@{expandableTitleSimpleItemsData.itemsColor}"
-            android:text="@{expandableTitleSimpleItemsData.items.get(itemPosition), default=`Simple sub item`}"
-            android:layout_width="@dimen/dimen_0_dp"
+            tools:text="Simple sub item"
+            android:text="@{expandableTitleSimpleItemsData.items.get(itemPosition)}"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
-    </android.support.constraint.ConstraintLayout>
+    </FrameLayout>
 
 </layout>

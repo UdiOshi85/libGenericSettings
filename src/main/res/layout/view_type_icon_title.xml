@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="iconTitleData"
             type="com.oshi.libgenericsettings.data.IconTitleData" />
@@ -17,35 +19,35 @@
 
     </data>
 
-    <android.support.constraint.ConstraintLayout
+    <LinearLayout
         style="@style/RootView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="@{(view) -> settingsPresenter.onIconTitleClick(view, iconTitleData, itemPosition)}">
-        
+        android:onClick="@{(view) -> settingsPresenter.onIconTitleClick(view, iconTitleData, itemPosition)}"
+        android:orientation="horizontal">
+
         <android.support.v7.widget.AppCompatImageView
             android:id="@+id/icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@{iconTitleData.iconResId, default=@drawable/ic_android_black_24dp}"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            app:srcCompat="@{iconTitleData.iconResId}"
+            tools:srcCompat="@drawable/ic_android_black_24dp" />
 
         <TextView
             android:id="@+id/title"
             style="@style/Settings.Title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/dimen_32_dp"
             android:layout_marginLeft="@dimen/dimen_32_dp"
-            android:text="@{iconTitleData.title, default=`Title example here, Probably one of the longest titles ever`}"
+            android:layout_marginStart="@dimen/dimen_32_dp"
+            android:text="@{iconTitleData.title}"
             app:textColor="@{iconTitleData.titleColor}"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/icon"
-            app:layout_constraintTop_toTopOf="parent" />
-        
+            tools:text="Title example here, Probably one of the longest titles ever" />
 
-    </android.support.constraint.ConstraintLayout>
+
+    </LinearLayout>
 
 </layout>

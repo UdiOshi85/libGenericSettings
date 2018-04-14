@@ -4,7 +4,6 @@ import android.databinding.ViewDataBinding
 import android.support.v7.widget.RecyclerView
 import com.oshi.libgenericsettings.BR
 import com.oshi.libgenericsettings.data.ExpandableTitleBulletItemsData
-import com.oshi.libgenericsettings.data.ExpandableTitleSimpleItemsData
 import com.oshi.libgenericsettings.presenter.ISettingsPresenter
 
 
