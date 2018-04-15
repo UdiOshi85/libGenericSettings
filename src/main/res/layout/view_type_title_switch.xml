@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
         <variable
@@ -17,7 +18,7 @@
 
     </data>
 
-    <android.support.constraint.ConstraintLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="@{(view) -> settingsPresenter.onTitleSwitchClick(view, titleSwitchData, itemPosition)}"
@@ -27,14 +28,15 @@
             android:id="@+id/title"
             style="@style/Settings.Title"
             android:layout_width="0dp"
+            android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:text="@{titleSwitchData.title, default=`Title example here`}"
+            tools:text="Title example here, but very very long one for testing"
+            android:text="@{titleSwitchData.title}"
             app:textColor="@{titleSwitchData.titleColor}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/switchView" />
-
 
         <android.support.v7.widget.SwitchCompat
             android:id="@+id/switchView"
@@ -44,11 +46,12 @@
             android:background="@android:color/transparent"
             app:switchThumbColors="@{titleSwitchData}"
             app:switchTrackColors="@{titleSwitchData}"
-            android:checked="@{titleSwitchData.isSwitchOn, default=false}"
+            tools:checked="true"
+            android:checked="@{titleSwitchData.isSwitchOn}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-    </android.support.constraint.ConstraintLayout>
+    </LinearLayout>
 
 </layout>

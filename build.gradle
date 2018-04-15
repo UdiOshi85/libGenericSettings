@@ -89,7 +89,6 @@ dependencies {
     implementation "com.android.support:design:$support"
 
 
-    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin"
 
     // Used for getting data bind compile detailed error

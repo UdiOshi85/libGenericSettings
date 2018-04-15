@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
@@ -18,50 +19,54 @@
 
     </data>
 
-    <android.support.constraint.ConstraintLayout
+    <LinearLayout
         style="@style/RootView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="@{(view) -> settingsPresenter.onTitleSubtitleSwitchClick(view, titleSubtitleSwitchData, itemPosition)}">
+        android:gravity="center_vertical"
+        android:onClick="@{(view) -> settingsPresenter.onTitleSubtitleSwitchClick(view, titleSubtitleSwitchData, itemPosition)}"
+        android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/title"
-            android:layout_width="@dimen/dimen_0_dp"
+        <LinearLayout
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="@{titleSubtitleSwitchData.title, default=`Title example here`}"
-            app:textColor="@{titleSubtitleSwitchData.titleColor}"
-            style="@style/Settings.Title"
-            app:layout_constraintEnd_toStartOf="@+id/switchView"
-            app:layout_constraintBottom_toTopOf="@+id/subtitle"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_chainStyle="packed" />
+            android:layout_weight="1"
+            android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/subtitle"
-            android:layout_width="@dimen/dimen_0_dp"
-            android:layout_height="wrap_content"
-            android:text="@{titleSubtitleSwitchData.subtitle, default=`A subtitle text`}"
-            app:textColor="@{titleSubtitleSwitchData.subtitleColor}"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/switchView"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/title" />
+            <TextView
+                android:id="@+id/title"
+                style="@style/Settings.Title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{titleSubtitleSwitchData.title}"
+                app:textColor="@{titleSubtitleSwitchData.titleColor}"
+                tools:text="Title example here" />
+
+            <TextView
+                android:id="@+id/subtitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{titleSubtitleSwitchData.subtitle}"
+                app:textColor="@{titleSubtitleSwitchData.subtitleColor}"
+                tools:text="A subtitle text" />
+
+        </LinearLayout>
 
         <android.support.v7.widget.SwitchCompat
             android:id="@+id/switchView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:clickable="false"
-            app:switchTrackColors="@{titleSubtitleSwitchData}"
-            app:switchThumbColors="@{titleSubtitleSwitchData}"
             android:background="@android:color/transparent"
-            android:checked="@{titleSubtitleSwitchData.isSwitchOn, default=false}"
+            android:checked="@{titleSubtitleSwitchData.isSwitchOn}"
+            android:clickable="false"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:switchThumbColors="@{titleSubtitleSwitchData}"
+            app:switchTrackColors="@{titleSubtitleSwitchData}"
+            tools:checked="true" />
 
 
-    </android.support.constraint.ConstraintLayout>
+    </LinearLayout>
 
 </layout>

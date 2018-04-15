@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
@@ -18,70 +19,82 @@
 
     </data>
 
-    <android.support.constraint.ConstraintLayout
+    <LinearLayout
         style="@style/RootView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="@{(view) -> settingsPresenter.onTitleSubtitleExtraCheckboxClick(view, titleSubtitleExtraCheckboxData, itemPosition)}">
+        android:gravity="center_vertical"
+        android:onClick="@{(view) -> settingsPresenter.onTitleSubtitleExtraCheckboxClick(view, titleSubtitleExtraCheckboxData, itemPosition)}"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/title"
+                style="@style/Settings.Title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/dimen_16_dp"
+                android:layout_marginRight="@dimen/dimen_16_dp"
+                android:text="@{titleSubtitleExtraCheckboxData.title}"
+                app:layout_constraintBottom_toTopOf="@+id/subtitle"
+                app:layout_constraintEnd_toStartOf="@+id/checkbox"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_chainStyle="packed"
+                app:textColor="@{titleSubtitleExtraCheckboxData.titleColor}"
+                tools:text="Title example here, But it's very very very long to check" />
+
+            <TextView
+                android:id="@+id/subtitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/dimen_16_dp"
+                android:layout_marginRight="@dimen/dimen_16_dp"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="@{titleSubtitleExtraCheckboxData.subtitle}"
+                app:layout_constraintBottom_toTopOf="@+id/extraText"
+                app:layout_constraintEnd_toStartOf="@+id/checkbox"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/title"
+                app:textColor="@{titleSubtitleExtraCheckboxData.subtitleColor}"
+                tools:text="A subtitle text, very long to see what's happening here" />
+
+            <TextView
+                android:id="@+id/extraText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/dimen_16_dp"
+                android:layout_marginRight="@dimen/dimen_16_dp"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="@{titleSubtitleExtraCheckboxData.extraText}"
+                android:textSize="@dimen/dimen_12_sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/checkbox"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/subtitle"
+                app:textColor="@{titleSubtitleExtraCheckboxData.extraColor}"
+                tools:text="An extra text" />
+
+        </LinearLayout>
 
         <android.support.v7.widget.AppCompatCheckBox
             android:id="@+id/checkbox"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:checked="@{titleSubtitleExtraCheckboxData.isEnabled}"
             android:clickable="false"
-            android:checked="@{titleSubtitleExtraCheckboxData.isEnabled, default=false}"
             app:buttonTint="@{titleSubtitleExtraCheckboxData.checkboxColor}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/title"
-            style="@style/Settings.Title"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="@dimen/dimen_16_dp"
-            android:layout_marginRight="@dimen/dimen_16_dp"
-            android:text="@{titleSubtitleExtraCheckboxData.title, default=`Title example here, But it's very very very long to check`}"
-            app:layout_constraintBottom_toTopOf="@+id/subtitle"
-            app:layout_constraintEnd_toStartOf="@+id/checkbox"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_chainStyle="packed"
-            app:textColor="@{titleSubtitleExtraCheckboxData.titleColor}" />
-
-        <TextView
-            android:id="@+id/subtitle"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="@dimen/dimen_16_dp"
-            android:layout_marginRight="@dimen/dimen_16_dp"
-            android:ellipsize="end"
-            android:maxLines="1"
-            android:text="@{titleSubtitleExtraCheckboxData.subtitle, default=`A subtitle text, very long to see what's happening here`}"
-            app:layout_constraintBottom_toTopOf="@+id/extraText"
-            app:layout_constraintEnd_toStartOf="@+id/checkbox"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/title"
-            app:textColor="@{titleSubtitleExtraCheckboxData.subtitleColor}" />
-
-        <TextView
-            android:id="@+id/extraText"
-            android:layout_width="@dimen/dimen_0_dp"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@+id/subtitle"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_marginEnd="@dimen/dimen_16_dp"
-            android:layout_marginRight="@dimen/dimen_16_dp"
-            android:ellipsize="end"
-            android:maxLines="1"
-            android:textSize="@dimen/dimen_12_sp"
-            android:text="@{titleSubtitleExtraCheckboxData.extraText, default=`An extra text`}"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/checkbox"
-            app:textColor="@{titleSubtitleExtraCheckboxData.extraColor}"
-            />
-
-    </android.support.constraint.ConstraintLayout>
+    </LinearLayout>
 
 </layout>

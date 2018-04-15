@@ -17,66 +17,58 @@
             type="int" />
     </data>
 
-    <android.support.constraint.ConstraintLayout
+    <LinearLayout
         style="@style/RootView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
         <TextView
             android:id="@+id/title"
             style="@style/Settings.Title"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/dimen_16_dp"
             android:layout_marginRight="@dimen/dimen_16_dp"
             android:text="@{titleUpDownValueDataData.title, default=`Title example here, But it's very very very long to check`}"
-            app:textColor="@{titleUpDownValueDataData.titleColor}"
-            app:layout_constraintBottom_toTopOf="@+id/upIcon"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_chainStyle="packed" />
+            app:textColor="@{titleUpDownValueDataData.titleColor}" />
 
-
-        <android.support.v7.widget.AppCompatImageView
-            android:id="@+id/upIcon"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dimen_12_dp"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            app:tint="@{titleUpDownValueDataData.upDownColor}"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/title"
-            app:srcCompat="@drawable/ic_add_grey_36dp" />
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
 
-        <android.support.v7.widget.AppCompatImageView
-            android:id="@+id/downIcon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            app:tint="@{titleUpDownValueDataData.upDownColor}"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/upIcon"
-            app:srcCompat="@drawable/ic_remove_grey_36dp" />
+            <android.support.v7.widget.AppCompatImageView
+                android:id="@+id/upIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                app:srcCompat="@drawable/ic_add_grey_36dp"
+                app:tint="@{titleUpDownValueDataData.upDownColor}" />
 
+            <TextView
+                android:id="@+id/valueText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@{String.valueOf(titleUpDownValueDataData.currentValue), default=`888`}"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:textColor="@{titleUpDownValueDataData.valueTextColor}" />
 
-        <TextView
-            android:id="@+id/valueText"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:gravity="center"
-            android:text="@{String.valueOf(titleUpDownValueDataData.currentValue), default=`888`}"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            app:textColor="@{titleUpDownValueDataData.valueTextColor}"
-            app:layout_constraintStart_toEndOf="@+id/upIcon"
-            app:layout_constraintEnd_toStartOf="@+id/downIcon"
-            app:layout_constraintBottom_toBottomOf="@+id/upIcon"
-            app:layout_constraintTop_toTopOf="@+id/upIcon" />
+            <android.support.v7.widget.AppCompatImageView
+                android:id="@+id/downIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                app:srcCompat="@drawable/ic_remove_grey_36dp"
+                app:tint="@{titleUpDownValueDataData.upDownColor}" />
 
+        </LinearLayout>
 
-    </android.support.constraint.ConstraintLayout>
+    </LinearLayout>
 
 </layout>
