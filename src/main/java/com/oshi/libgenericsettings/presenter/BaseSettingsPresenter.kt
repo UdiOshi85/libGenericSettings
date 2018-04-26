@@ -1,6 +1,7 @@
 package com.oshi.libgenericsettings.presenter
 
 import android.content.Context
+import android.support.v7.widget.RecyclerView
 import android.view.View
 import com.oshi.libgenericsettings.data.*
 
@@ -8,7 +9,7 @@ import com.oshi.libgenericsettings.data.*
  * A custom base settings provider which overrides all available types.
  * You should extend this class and override your specific methods.
  */
-open class BaseSettingsPresenter : ISettingsPresenter {
+open class BaseSettingsPresenter(val recyclerView : RecyclerView) : ISettingsPresenter {
 
     override fun onTitleSubtitleSwitchClick(view: View, data: TitleSubtitleSwitchData, position: Int) {}
 
@@ -44,10 +45,11 @@ open class BaseSettingsPresenter : ISettingsPresenter {
 
     override fun onExpandableBulletItemClicked(view: View, data: ExpandableTitleBulletItemsData, parentPosition: Int, subItemPosition: Int) {}
 
-
     override fun getItems(context: Context): List<BaseViewTypeData> {
         return emptyList()
     }
 
-    override fun onExpandCollapseClicked(position: Int) {}
+    override fun onExpandCollapseClicked(position: Int) {
+        recyclerView.smoothScrollToPosition(position)
+    }
 }
