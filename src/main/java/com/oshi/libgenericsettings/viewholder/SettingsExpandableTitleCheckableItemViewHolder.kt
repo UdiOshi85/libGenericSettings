@@ -29,6 +29,9 @@ class SettingsExpandableTitleCheckableItemViewHolder(viewDataBinding: ViewDataBi
     }
 
     override fun onBind(data: ExpandableTitleCheckableItemsData, presenter: ISettingsPresenter, position: Int) {
+        recyclerData = data
+        recycledPresenter = presenter
+
         viewDataBinding.setVariable(BR.expandableTitleCheckableItemsData, data)
         viewDataBinding.setVariable(BR.settingsPresenter, presenter)
         viewDataBinding.setVariable(BR.itemPosition, position)

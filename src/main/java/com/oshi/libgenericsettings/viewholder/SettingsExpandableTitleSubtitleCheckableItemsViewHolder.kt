@@ -26,6 +26,7 @@ class SettingsExpandableTitleSubtitleCheckableItemsViewHolder(viewDataBinding: V
     init {
         itemsList.setHasFixedSize(true)
         itemsList.layoutManager = LinearLayoutManager(itemsList.context, LinearLayoutManager.VERTICAL, false)
+        viewExpander.onExpandStateChangedListener = this
     }
 
     override fun onBind(data: ExpandableTitleSubtitleCheckableItemsData, presenter: ISettingsPresenter, position: Int) {

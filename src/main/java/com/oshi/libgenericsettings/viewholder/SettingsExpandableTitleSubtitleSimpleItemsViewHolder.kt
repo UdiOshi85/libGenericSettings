@@ -29,6 +29,9 @@ class SettingsExpandableTitleSubtitleSimpleItemsViewHolder(viewDataBinding: View
     }
 
     override fun onBind(data: ExpandableTitleSubtitleSimpleItemsData, presenter: ISettingsPresenter, position: Int) {
+        recyclerData = data
+        recycledPresenter = presenter
+
         viewDataBinding.setVariable(BR.expandableTitleSubtitleSimpleItemsData, data)
         viewDataBinding.setVariable(BR.settingsPresenter, presenter)
         viewDataBinding.setVariable(BR.itemPosition, position)
