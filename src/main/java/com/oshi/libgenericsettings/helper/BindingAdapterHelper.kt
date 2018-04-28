@@ -5,6 +5,7 @@ import android.databinding.BindingAdapter
 import android.graphics.PorterDuff
 import android.graphics.PorterDuffColorFilter
 import android.os.Build
+import android.preference.PreferenceManager
 import android.support.v4.content.ContextCompat
 import android.support.v4.graphics.drawable.DrawableCompat
 import android.support.v4.widget.CompoundButtonCompat
@@ -15,6 +16,7 @@ import android.support.v7.widget.SwitchCompat
 import android.view.View
 import android.widget.TextView
 import com.oshi.libgenericsettings.R
+import com.oshi.libgenericsettings.data.BaseViewTypeData
 import com.oshi.libgenericsettings.data.ExpandableTitleBulletItemsData
 import com.oshi.libgenericsettings.data.TitleSwitchData
 
@@ -24,7 +26,7 @@ import com.oshi.libgenericsettings.data.TitleSwitchData
 class BindingAdapterHelper {
 
     companion object {
-        @JvmStatic private var states = arrayOf<IntArray>(intArrayOf(-android.R.attr.state_checked), intArrayOf(android.R.attr.state_checked))
+        @JvmStatic private var states = arrayOf(intArrayOf(-android.R.attr.state_checked), intArrayOf(android.R.attr.state_checked))
 
         @JvmStatic
         @BindingAdapter("srcCompat")
@@ -122,6 +124,16 @@ class BindingAdapterHelper {
         @BindingAdapter("textWithBullet")
         fun setTextWithBullet(textView : TextView, text: String) {
             textView.text = textView.context.getString(R.string.bullet).plus(" ").plus(text)
+        }
+        @JvmStatic
+        @BindingAdapter("checked")
+        fun setChecked(checkbox: AppCompatCheckBox, key : String?) {
+            if (!key.isNullOrBlank()) {
+                val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(checkbox.context)
+                val value = sharedPreferences.getBoolean(key, false)
+                GLog.d("Fetch $key with $value")
+                checkbox.isChecked = value
+            }
         }
     }
 

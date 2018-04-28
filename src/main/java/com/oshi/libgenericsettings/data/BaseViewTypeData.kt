@@ -1,9 +1,11 @@
 package com.oshi.libgenericsettings.data
 
 /**
- * Base POJO for recycling view types handling
+ * Base POKO for recycling view types handling
  */
 abstract class BaseViewTypeData {
+
+    var key : String? = null
 
     companion object {
         @JvmField

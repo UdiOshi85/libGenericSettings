@@ -26,7 +26,7 @@ class TitleSeekBarMinMaxData(title : String, var minValue : Int, var maxValue : 
         return progress
     }
 
-    fun internalCalculateProgress(progress: Int)  {
+    private fun internalCalculateProgress(progress: Int)  {
         this.progress = progress
         this.progress = getCalculatedMaxValue() - (progress - minValue)
     }

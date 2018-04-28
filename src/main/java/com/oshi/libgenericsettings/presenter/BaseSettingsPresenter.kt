@@ -1,10 +1,14 @@
 package com.oshi.libgenericsettings.presenter
 
 import android.content.Context
+import android.preference.PreferenceManager
+import android.support.v7.widget.AppCompatCheckBox
 import android.support.v7.widget.RecyclerView
 import android.util.Log
 import android.view.View
+import com.oshi.libgenericsettings.R
 import com.oshi.libgenericsettings.data.*
+import com.oshi.libgenericsettings.helper.GLog
 import com.oshi.libgenericsettings.helper.tag
 
 /**
@@ -41,7 +45,18 @@ open class BaseSettingsPresenter(val recyclerView : RecyclerView) : ISettingsPre
         recyclerView.adapter.notifyItemChanged(parentPosition)
     }
 
-    override fun onTitleCheckboxClick(view: View, data: TitleCheckboxData, position: Int) {}
+    override fun onTitleCheckboxClick(view: View, data: TitleCheckboxData, position: Int) {
+
+        if (!data.key.isNullOrBlank()) {
+            val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(view.context)
+            val oldValue = sharedPreferences.getBoolean(data.key, false)
+            sharedPreferences.edit().putBoolean(data.key, !oldValue).apply()
+            GLog.d("Updated ${data.key} with ${!oldValue}")
+            recyclerView.adapter.notifyItemChanged(position)
+        } else {
+            GLog.error("Title & Checkbox doesn't have key to update value")
+        }
+    }
 
     override fun onTitleSubtitleExtraClick(view: View, data: TitleSubtitleExtraData, position: Int) {}
 
