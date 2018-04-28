@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
         <variable
             name="iconTitleData"
             type="com.oshi.libgenericsettings.data.IconTitleData" />
@@ -34,6 +33,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@{iconTitleData.iconResId}"
+            app:tint="@{iconTitleData.iconColor}"
             tools:srcCompat="@drawable/ic_android_black_24dp" />
 
         <TextView
