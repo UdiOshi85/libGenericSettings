@@ -13,7 +13,6 @@ import com.oshi.libgenericsettings.viewholder.CheckableSubItemViewHolder
 
 class CheckableSubItemsAdapter(var data : ExpandableTitleCheckableItemsData, var parentPosition : Int, var presenter : ISettingsPresenter) : RecyclerView.Adapter<CheckableSubItemViewHolder>() {
 
-
     override fun getItemCount(): Int {
         return data.items.size
     }

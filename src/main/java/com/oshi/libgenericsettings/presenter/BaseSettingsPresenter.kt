@@ -2,8 +2,10 @@ package com.oshi.libgenericsettings.presenter
 
 import android.content.Context
 import android.support.v7.widget.RecyclerView
+import android.util.Log
 import android.view.View
 import com.oshi.libgenericsettings.data.*
+import com.oshi.libgenericsettings.helper.tag
 
 /**
  * A custom base settings provider which overrides all available types.
@@ -31,7 +33,13 @@ open class BaseSettingsPresenter(val recyclerView : RecyclerView) : ISettingsPre
 
     override fun onExpandableSimpleItemClicked(view: View, data: ExpandableTitleSimpleItemsData, parentPosition: Int, subItemPosition: Int) {}
 
-    override fun onExpandableCheckableItemClicked(view: View, data: ExpandableTitleCheckableItemsData, parentPosition: Int, subItemPosition: Int) {}
+    override fun onExpandableCheckableItemClicked(view: View, data: ExpandableTitleCheckableItemsData, parentPosition: Int, subItemPosition: Int) {
+        Log.d(tag(), "onExpandableCheckableItemClicked: Position: $parentPosition, Sub item: $subItemPosition")
+        val oldVal = data.items[subItemPosition].isChecked
+        val newVal = !oldVal
+        data.items[subItemPosition].isChecked = newVal
+        recyclerView.adapter.notifyItemChanged(parentPosition)
+    }
 
     override fun onTitleCheckboxClick(view: View, data: TitleCheckboxData, position: Int) {}
 
