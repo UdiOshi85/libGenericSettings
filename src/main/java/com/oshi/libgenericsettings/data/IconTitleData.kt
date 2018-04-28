@@ -8,6 +8,8 @@ import android.support.annotation.DrawableRes
  */
 open class IconTitleData(@DrawableRes var iconResId : Int, title : String) : TitleData(title) {
 
+    @ColorRes var iconColor: Int = 0
+
     override fun getViewType(): Int {
         return VIEW_TYPE_SETTINGS_ICON_TITLE
     }
