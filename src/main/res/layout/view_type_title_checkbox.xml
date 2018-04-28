@@ -23,7 +23,7 @@
         style="@style/RootView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="@{(view) -> settingsPresenter.onTitleCheckboxClick(view, titleCheckboxData, itemPosition)}">
+        android:onClick="@{(view) -> settingsPresenter.onCheckboxTitleClick(view, titleCheckboxData, itemPosition)}">
 
         <TextView
             android:id="@+id/title"

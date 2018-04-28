@@ -125,6 +125,7 @@ class BindingAdapterHelper {
         fun setTextWithBullet(textView : TextView, text: String) {
             textView.text = textView.context.getString(R.string.bullet).plus(" ").plus(text)
         }
+
         @JvmStatic
         @BindingAdapter("checked")
         fun setChecked(checkbox: AppCompatCheckBox, key : String?) {
@@ -133,6 +134,17 @@ class BindingAdapterHelper {
                 val value = sharedPreferences.getBoolean(key, false)
                 GLog.d("Fetch $key with $value")
                 checkbox.isChecked = value
+            }
+        }
+
+        @JvmStatic
+        @BindingAdapter("checked")
+        fun setChecked(switch: SwitchCompat, key : String?) {
+            if (!key.isNullOrBlank()) {
+                val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(switch.context)
+                val value = sharedPreferences.getBoolean(key, false)
+                GLog.d("Fetch $key with $value")
+                switch.isChecked = value
             }
         }
     }

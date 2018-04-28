@@ -75,7 +75,7 @@
             app:switchThumbColors="@{titleSubtitleExtraSwitchData}"
             android:background="@android:color/transparent"
             tools:checked="true"
-            android:checked="@{titleSubtitleExtraSwitchData.isSwitchOn}"
+            app:checked="@{titleSubtitleExtraSwitchData.key}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />

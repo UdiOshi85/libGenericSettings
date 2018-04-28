@@ -32,11 +32,7 @@
             android:layout_height="wrap_content"
             tools:text="Title example here, but very very long one for testing"
             android:text="@{titleSwitchData.title}"
-            app:textColor="@{titleSwitchData.titleColor}"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/switchView" />
+            app:textColor="@{titleSwitchData.titleColor}" />
 
         <android.support.v7.widget.SwitchCompat
             android:id="@+id/switchView"
@@ -47,10 +43,7 @@
             app:switchThumbColors="@{titleSwitchData}"
             app:switchTrackColors="@{titleSwitchData}"
             tools:checked="true"
-            android:checked="@{titleSwitchData.isSwitchOn}"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:checked="@{titleSwitchData.key}" />
 
     </LinearLayout>
 

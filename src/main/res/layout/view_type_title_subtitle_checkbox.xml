@@ -62,8 +62,8 @@
             android:id="@+id/checkbox"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:checked="@{checkboxTitleSubtitle.isEnabled}"
             android:clickable="false"
+            app:checked="@{checkboxTitleSubtitle.key}"
             app:buttonTint="@{checkboxTitleSubtitle.checkboxColor}"
             tools:checked="true" />
 

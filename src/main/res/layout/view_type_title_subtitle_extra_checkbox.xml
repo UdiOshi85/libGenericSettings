@@ -24,7 +24,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_vertical"
-        android:onClick="@{(view) -> settingsPresenter.onTitleSubtitleExtraCheckboxClick(view, titleSubtitleExtraCheckboxData, itemPosition)}"
+        android:onClick="@{(view) -> settingsPresenter.onCheckboxTitleSubtitleExtraClick(view, titleSubtitleExtraCheckboxData, itemPosition)}"
         android:orientation="horizontal">
 
         <LinearLayout
@@ -88,12 +88,9 @@
             android:id="@+id/checkbox"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:checked="@{titleSubtitleExtraCheckboxData.isEnabled}"
             android:clickable="false"
-            app:buttonTint="@{titleSubtitleExtraCheckboxData.checkboxColor}"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:checked="@{titleSubtitleExtraCheckboxData.key}"
+            app:buttonTint="@{titleSubtitleExtraCheckboxData.checkboxColor}" />
 
     </LinearLayout>
 

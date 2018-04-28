@@ -17,13 +17,19 @@ import com.oshi.libgenericsettings.helper.tag
  */
 open class BaseSettingsPresenter(val recyclerView : RecyclerView) : ISettingsPresenter {
 
-    override fun onTitleSubtitleSwitchClick(view: View, data: TitleSubtitleSwitchData, position: Int) {}
+    override fun onTitleSubtitleSwitchClick(view: View, data: TitleSubtitleSwitchData, position: Int) {
+        updateSwitchChange(view, data.key, position)
+    }
 
     override fun onTitleSubtitleClick(view: View, data: TitleSubtitleData, position: Int) {}
 
-    override fun onTitleSwitchClick(view: View, data: TitleSwitchData, position: Int) {}
+    override fun onTitleSwitchClick(view: View, data: TitleSwitchData, position: Int) {
+        updateSwitchChange(view, data.key, position)
+    }
 
-    override fun onCheckboxTitleSubtitleClick(view: View, data: TitleSubtitleCheckboxData, position: Int) {}
+    override fun onCheckboxTitleSubtitleClick(view: View, data: TitleSubtitleCheckboxData, position: Int) {
+        updateCheckboxChange(view, data.key, position)
+    }
 
     override fun onTitleClick(view: View, data: TitleData, position: Int) {}
 
@@ -38,31 +44,25 @@ open class BaseSettingsPresenter(val recyclerView : RecyclerView) : ISettingsPre
     override fun onExpandableSimpleItemClicked(view: View, data: ExpandableTitleSimpleItemsData, parentPosition: Int, subItemPosition: Int) {}
 
     override fun onExpandableCheckableItemClicked(view: View, data: ExpandableTitleCheckableItemsData, parentPosition: Int, subItemPosition: Int) {
-        Log.d(tag(), "onExpandableCheckableItemClicked: Position: $parentPosition, Sub item: $subItemPosition")
         val oldVal = data.items[subItemPosition].isChecked
         val newVal = !oldVal
         data.items[subItemPosition].isChecked = newVal
         recyclerView.adapter.notifyItemChanged(parentPosition)
     }
 
-    override fun onTitleCheckboxClick(view: View, data: TitleCheckboxData, position: Int) {
-
-        if (!data.key.isNullOrBlank()) {
-            val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(view.context)
-            val oldValue = sharedPreferences.getBoolean(data.key, false)
-            sharedPreferences.edit().putBoolean(data.key, !oldValue).apply()
-            GLog.d("Updated ${data.key} with ${!oldValue}")
-            recyclerView.adapter.notifyItemChanged(position)
-        } else {
-            GLog.error("Title & Checkbox doesn't have key to update value")
-        }
+    override fun onCheckboxTitleClick(view: View, data: TitleCheckboxData, position: Int) {
+        updateCheckboxChange(view, data.key, position)
     }
 
     override fun onTitleSubtitleExtraClick(view: View, data: TitleSubtitleExtraData, position: Int) {}
 
-    override fun onTitleSubtitleExtraCheckboxClick(view: View, data: TitleSubtitleExtraCheckboxData, position: Int) {}
+    override fun onCheckboxTitleSubtitleExtraClick(view: View, data: TitleSubtitleExtraCheckboxData, position: Int) {
+        updateCheckboxChange(view, data.key, position)
+    }
 
-    override fun onTitleSubtitleExtraSwitchClick(view: View, data: TitleSubtitleExtraSwitchData, position: Int) {}
+    override fun onTitleSubtitleExtraSwitchClick(view: View, data: TitleSubtitleExtraSwitchData, position: Int) {
+        updateSwitchChange(view, data.key, position)
+    }
 
     override fun onTitleSeekBarMinMaxChanged(view: View, data: TitleSeekBarMinMaxData, position: Int) {}
 
@@ -74,5 +74,25 @@ open class BaseSettingsPresenter(val recyclerView : RecyclerView) : ISettingsPre
 
     override fun onExpandCollapseClicked(position: Int) {
         recyclerView.smoothScrollToPosition(position)
+    }
+
+    private fun updateCheckboxChange(view : View, key : String?, position : Int) {
+        if (!key.isNullOrBlank()) {
+            val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(view.context)
+            val oldValue = sharedPreferences.getBoolean(key, false)
+            sharedPreferences.edit().putBoolean(key, !oldValue).apply()
+            GLog.d("Updated $key with ${!oldValue}")
+            recyclerView.adapter.notifyItemChanged(position)
+        }
+    }
+
+    private fun updateSwitchChange(view : View, key : String?, position : Int) {
+        if (!key.isNullOrBlank()) {
+            val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(view.context)
+            val oldValue = sharedPreferences.getBoolean(key, false)
+            sharedPreferences.edit().putBoolean(key, !oldValue).apply()
+            GLog.d("Updated $key with ${!oldValue}")
+            recyclerView.adapter.notifyItemChanged(position)
+        }
     }
 }
