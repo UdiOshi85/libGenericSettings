@@ -26,7 +26,8 @@ import com.oshi.libgenericsettings.data.TitleSwitchData
 class BindingAdapterHelper {
 
     companion object {
-        @JvmStatic private var states = arrayOf(intArrayOf(-android.R.attr.state_checked), intArrayOf(android.R.attr.state_checked))
+        @JvmStatic
+        private var states = arrayOf(intArrayOf(-android.R.attr.state_checked), intArrayOf(android.R.attr.state_checked))
 
         @JvmStatic
         @BindingAdapter("srcCompat")
@@ -122,13 +123,13 @@ class BindingAdapterHelper {
 
         @JvmStatic
         @BindingAdapter("textWithBullet")
-        fun setTextWithBullet(textView : TextView, text: String) {
+        fun setTextWithBullet(textView: TextView, text: String) {
             textView.text = textView.context.getString(R.string.bullet).plus(" ").plus(text)
         }
 
         @JvmStatic
         @BindingAdapter("checked")
-        fun setChecked(checkbox: AppCompatCheckBox, key : String?) {
+        fun setChecked(checkbox: AppCompatCheckBox, key: String?) {
             if (!key.isNullOrBlank()) {
                 val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(checkbox.context)
                 val value = sharedPreferences.getBoolean(key, false)
@@ -139,12 +140,23 @@ class BindingAdapterHelper {
 
         @JvmStatic
         @BindingAdapter("checked")
-        fun setChecked(switch: SwitchCompat, key : String?) {
+        fun setChecked(switch: SwitchCompat, key: String?) {
             if (!key.isNullOrBlank()) {
                 val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(switch.context)
                 val value = sharedPreferences.getBoolean(key, false)
                 GLog.d("Fetch $key with $value")
                 switch.isChecked = value
+            }
+        }
+
+        @JvmStatic
+        @BindingAdapter("progress")
+        fun setProgress(seekBar: AppCompatSeekBar, key : String?) {
+            if (!key.isNullOrBlank()) {
+                val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(seekBar.context)
+                val value = sharedPreferences.getInt(key, 0)
+                GLog.d("Fetch $key with $value")
+                seekBar.progress = value
             }
         }
     }

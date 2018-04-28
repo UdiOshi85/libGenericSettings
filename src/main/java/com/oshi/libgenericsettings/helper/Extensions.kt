@@ -9,7 +9,6 @@ fun <T : KClass<*>> T.tag():String = java.simpleName ?: ""
 
 fun <T : Any> T.tag():String = this::class.tag()
 
-
 inline fun <T : View> T.onPreDraw(crossinline f: T.() -> Boolean) {
     viewTreeObserver.addOnPreDrawListener(object : ViewTreeObserver.OnPreDrawListener {
         override fun onPreDraw(): Boolean {
