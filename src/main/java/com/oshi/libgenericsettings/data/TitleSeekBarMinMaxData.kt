@@ -5,7 +5,7 @@ import android.support.annotation.ColorRes
 /**
  * Title, SeekBar with minimum & maximum values. Being use in layout/view_type_title_seekbar_min_max.xml
  */
-class TitleSeekBarMinMaxData(title : String, var minValue : Int, var maxValue : Int, var progress : Int) : TitleData(title) {
+class TitleSeekBarMinMaxData(title : String, var minValue : Int, var maxValue : Int, private var progress : Int) : TitleData(title) {
 
     @ColorRes var seekBarColor = 0
     @ColorRes var seekBarThumbColor = 0

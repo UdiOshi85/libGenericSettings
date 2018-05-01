@@ -154,11 +154,12 @@ class BindingAdapterHelper {
         fun setProgress(seekBar: AppCompatSeekBar, key : String?) {
             if (!key.isNullOrBlank()) {
                 val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(seekBar.context)
-                val value = sharedPreferences.getInt(key, 0)
-                GLog.d("Fetch $key with $value")
-                seekBar.progress = value
+                val value = sharedPreferences.getInt(key, Integer.MAX_VALUE)
+                if (value != Int.MAX_VALUE) {
+                    GLog.d("Fetch $key with $value")
+                    seekBar.progress = value
+                }
             }
         }
     }
-
 }

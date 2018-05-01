@@ -60,7 +60,7 @@
                 tools:max="100"
                 tools:progress="50"
                 android:max="@{titleIconSeekBarTextData.seekBarMaximumValue}"
-                android:progress="@{titleIconSeekBarTextData.seekBarCurrentProgress}"
+                app:progress="@{titleIconSeekBarTextData.key}"
                 app:seekBarColor="@{titleIconSeekBarTextData.seekBarColor}"
                 app:seekBarThumbColor="@{titleIconSeekBarTextData.seekBarThumbColor}" />
 
@@ -68,7 +68,6 @@
                 android:id="@+id/progressText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@{String.valueOf(titleIconSeekBarTextData.seekBarCurrentProgress)}"
                 app:layout_constraintBottom_toBottomOf="@+id/icon"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/icon"

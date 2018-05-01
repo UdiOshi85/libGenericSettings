@@ -9,7 +9,6 @@ import android.support.annotation.DrawableRes
  */
 class TitleIconSeekBarTextData(var seekBarMaximumValue : Int, @DrawableRes iconResId : Int, title : String) : IconTitleData(iconResId, title) {
 
-    var seekBarCurrentProgress : Int = 0
     @ColorRes var seekBarColor : Int = 0
     @ColorRes var seekBarThumbColor : Int = 0
     @ColorRes var progressTextColor : Int = 0
