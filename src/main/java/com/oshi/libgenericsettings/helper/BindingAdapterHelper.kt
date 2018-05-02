@@ -150,15 +150,15 @@ class BindingAdapterHelper {
         }
 
         @JvmStatic
-        @BindingAdapter("progress")
-        fun setProgress(seekBar: AppCompatSeekBar, key : String?) {
+        @BindingAdapter(value = ["progress", "initialValue"], requireAll = true)
+        fun setProgress(seekBar: AppCompatSeekBar, key: String?, initialValue: Int = 0) {
             if (!key.isNullOrBlank()) {
                 val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(seekBar.context)
-                val value = sharedPreferences.getInt(key, Integer.MAX_VALUE)
-                if (value != Int.MAX_VALUE) {
-                    GLog.d("Fetch $key with $value")
-                    seekBar.progress = value
-                }
+                val value = sharedPreferences.getInt(key, initialValue)
+                GLog.d("Fetch $key with $value")
+                seekBar.progress = value
+            } else {
+                seekBar.progress = initialValue
             }
         }
     }

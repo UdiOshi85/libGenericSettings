@@ -61,6 +61,7 @@
                 tools:progress="50"
                 android:max="@{titleIconSeekBarTextData.seekBarMaximumValue}"
                 app:progress="@{titleIconSeekBarTextData.key}"
+                app:initialValue="@{titleIconSeekBarTextData.initialSeekBarValue}"
                 app:seekBarColor="@{titleIconSeekBarTextData.seekBarColor}"
                 app:seekBarThumbColor="@{titleIconSeekBarTextData.seekBarThumbColor}" />
 

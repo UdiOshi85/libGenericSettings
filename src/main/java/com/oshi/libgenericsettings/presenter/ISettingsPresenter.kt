@@ -39,8 +39,6 @@ interface ISettingsPresenter {
 
     fun onTitleSubtitleExtraSwitchClick(view: View, data: TitleSubtitleExtraSwitchData, position: Int)
 
-    fun onTitleSeekBarMinMaxChanged(view: View, data: TitleSeekBarMinMaxData, position: Int)
-
     fun getItems(context: Context): List<BaseViewTypeData>
 
     fun onExpandCollapseClicked(position: Int)

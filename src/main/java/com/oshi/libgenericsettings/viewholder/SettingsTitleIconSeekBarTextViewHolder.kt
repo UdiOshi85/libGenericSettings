@@ -41,6 +41,9 @@ class SettingsTitleIconSeekBarTextViewHolder(viewDataBinding: ViewDataBinding) :
             updateProgressText()
             sharedPrefs.edit().putInt(recycledData.key, seekBar.progress).apply()
             recycledPresenter.onTitleIconSeekBarTextChanged(viewDataBinding.root, recycledData, adapterPosition)
+        } else {
+            // No key, lets just update the text near seek bar
+            updateProgressText()
         }
     }
 

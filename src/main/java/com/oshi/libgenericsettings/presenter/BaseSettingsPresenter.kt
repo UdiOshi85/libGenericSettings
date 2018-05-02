@@ -64,8 +64,6 @@ open class BaseSettingsPresenter(val recyclerView : RecyclerView) : ISettingsPre
         updateSwitchChange(view, data.key, position)
     }
 
-    override fun onTitleSeekBarMinMaxChanged(view: View, data: TitleSeekBarMinMaxData, position: Int) {}
-
     override fun onExpandableBulletItemClicked(view: View, data: ExpandableTitleBulletItemsData, parentPosition: Int, subItemPosition: Int) {}
 
     override fun getItems(context: Context): List<BaseViewTypeData> {

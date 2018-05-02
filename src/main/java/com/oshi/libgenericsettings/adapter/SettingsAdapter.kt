@@ -119,10 +119,6 @@ class SettingsAdapter(var context: Context, var presenter: ISettingsPresenter) :
                 val binding = DataBindingUtil.inflate<ViewDataBinding>(layoutInflater, R.layout.view_type_title_subtitle_extra_switch, parent, false)
                 SettingsTitleSubtitleExtraSwitchViewHolder(binding)
             }
-            BaseViewTypeData.VIEW_TYPE_SETTINGS_TITLE_SEEKBAR_MIN_MAX -> {
-                val binding = DataBindingUtil.inflate<ViewDataBinding>(layoutInflater, R.layout.view_type_title_seekbar_min_max, parent, false)
-                SettingsTitleSeekbarMinMaxViewHolder(binding)
-            }
             BaseViewTypeData.VIEW_TYPE_SETTINGS_EXPANDABLE_TITLE_SUBTITLE_SIMPLE_ITEMS -> {
                 val binding = DataBindingUtil.inflate<ViewDataBinding>(layoutInflater, R.layout.view_type_expandable_title_subtitle_simple_items, parent, false)
                 SettingsExpandableTitleSubtitleSimpleItemsViewHolder(binding)
