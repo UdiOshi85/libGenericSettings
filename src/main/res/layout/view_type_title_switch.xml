@@ -31,9 +31,10 @@
             android:layout_weight="1"
             android:layout_height="wrap_content"
             tools:text="Title example here, but very very long one for testing"
-            android:text="@{titleSwitchData.title}"
+            android:text="@{titleSwitchData.title, default=`Title example here`}"
             app:textColor="@{titleSwitchData.titleColor}" />
 
+        <!-- Do not change switchView id, being use in BaseSettingsPresenter -->
         <android.support.v7.widget.SwitchCompat
             android:id="@+id/switchView"
             android:layout_width="wrap_content"

@@ -29,12 +29,6 @@ interface ISettingsPresenter {
 
     fun onTitleUpDownValueChanged(view: View, data: TitleUpDownValueData, position: Int)
 
-    fun onExpandableSimpleItemClicked(view: View, data: ExpandableTitleSimpleItemsData, parentPosition: Int, subItemPosition: Int)
-
-    fun onExpandableBulletItemClicked(view: View, data: ExpandableTitleBulletItemsData, parentPosition: Int, subItemPosition: Int)
-
-    fun onExpandableCheckableItemClicked(view: View, data: ExpandableTitleCheckableItemsData, parentPosition: Int, subItemPosition: Int)
-
     fun onTitleSubtitleExtraClick(view: View, data: TitleSubtitleExtraData, position: Int)
 
     fun onTitleSubtitleExtraSwitchClick(view: View, data: TitleSubtitleExtraSwitchData, position: Int)

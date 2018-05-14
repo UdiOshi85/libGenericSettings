@@ -40,7 +40,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="@dimen/dimen_16_dp"
                 android:layout_marginRight="@dimen/dimen_16_dp"
-                android:text="@{titleSubtitleExtraCheckboxData.title}"
+                android:text="@{titleSubtitleExtraCheckboxData.title, default=`Title example here`}"
                 app:layout_constraintBottom_toTopOf="@+id/subtitle"
                 app:layout_constraintEnd_toStartOf="@+id/checkbox"
                 app:layout_constraintStart_toStartOf="parent"
@@ -51,36 +51,34 @@
 
             <TextView
                 android:id="@+id/subtitle"
+                style="@style/Settings.OneLineText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="@dimen/dimen_16_dp"
                 android:layout_marginRight="@dimen/dimen_16_dp"
-                android:ellipsize="end"
-                android:maxLines="1"
-                android:text="@{titleSubtitleExtraCheckboxData.subtitle}"
+                android:text="@{titleSubtitleExtraCheckboxData.subtitle, default=`Subtitle example here`}"
                 app:layout_constraintBottom_toTopOf="@+id/extraText"
                 app:layout_constraintEnd_toStartOf="@+id/checkbox"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/title"
                 app:textColor="@{titleSubtitleExtraCheckboxData.subtitleColor}"
-                tools:text="A subtitle text, very long to see what's happening here" />
+                tools:text="A subtitle text, very long to see what's happening here, Yalke" />
 
             <TextView
                 android:id="@+id/extraText"
+                style="@style/Settings.OneLineText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="@dimen/dimen_16_dp"
                 android:layout_marginRight="@dimen/dimen_16_dp"
-                android:ellipsize="end"
-                android:maxLines="1"
-                android:text="@{titleSubtitleExtraCheckboxData.extraText}"
+                android:text="@{titleSubtitleExtraCheckboxData.extraText, default=`Extra example here`}"
                 android:textSize="@dimen/dimen_12_sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/checkbox"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/subtitle"
                 app:textColor="@{titleSubtitleExtraCheckboxData.extraColor}"
-                tools:text="An extra text" />
+                tools:text="An extra text, very long to see what's happening here, Yalke palke" />
 
         </LinearLayout>
 

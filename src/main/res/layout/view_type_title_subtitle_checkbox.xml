@@ -41,17 +41,16 @@
                 style="@style/Settings.Title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@{checkboxTitleSubtitle.title}"
+                android:text="@{checkboxTitleSubtitle.title, default=`Title, Subtitle and a checkbox`}"
                 app:textColor="@{checkboxTitleSubtitle.titleColor}"
                 tools:text="Title example here, But it's very very very long to check" />
 
             <TextView
+                style="@style/Settings.OneLineText"
                 android:id="@+id/subtitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:ellipsize="end"
-                android:maxLines="1"
-                android:text="@{checkboxTitleSubtitle.subtitle}"
+                android:text="@{checkboxTitleSubtitle.subtitle, default=`Title, Subtitle and a checkbox`}"
                 app:textColor="@{checkboxTitleSubtitle.subtitleColor}"
                 tools:text="A subtitle text, very long to see what's happening here" />
 

@@ -27,20 +27,20 @@
         <TextView
             android:id="@+id/title"
             style="@style/Settings.Title"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            tools:text="Title example here"
-            android:text="@{titleSubtitleData.title}"
+            tools:text="Title example, But very long one for testing and validating"
+            android:text="@{titleSubtitleData.title, default=`Title example`}"
             app:textColor="@{titleSubtitleData.titleColor}" />
 
         <TextView
             android:id="@+id/subtitle"
-            android:layout_width="wrap_content"
+            style="@style/Settings.OneLineText"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            tools:text="A subtitle example here"
-            android:text="@{titleSubtitleData.subtitle}"
+            tools:text="Subtitle example,, But very long one for testing and validating"
+            android:text="@{titleSubtitleData.subtitle, default=`Subtitle example`}"
             app:textColor="@{titleSubtitleData.subtitleColor}" />
-
 
     </LinearLayout>
 

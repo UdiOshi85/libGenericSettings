@@ -31,24 +31,26 @@
             style="@style/Settings.Title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            tools:text="Title example here"
-            android:text="@{titleSubtitleExtraData.title}"
+            tools:text="Title example here, But very long one for testings and validating"
+            android:text="@{titleSubtitleExtraData.title, default=`Title example here`}"
             app:textColor="@{titleSubtitleExtraData.titleColor}" />
 
         <TextView
             android:id="@+id/subtitle"
+            style="@style/Settings.OneLineText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            tools:text="A subtitle text"
-            android:text="@{titleSubtitleExtraData.subtitle}"
+            tools:text="A subtitle text, But very long one for testings and validating"
+            android:text="@{titleSubtitleExtraData.subtitle, default=`A subtitle text`}"
             app:textColor="@{titleSubtitleExtraData.subtitleColor}" />
 
         <TextView
             android:id="@+id/extra"
+            style="@style/Settings.OneLineText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            tools:text="An extra text"
-            android:text="@{titleSubtitleExtraData.extraText}"
+            tools:text="An extra text, But very long one for testings and validating, Lorem ipsum?"
+            android:text="@{titleSubtitleExtraData.extraText, default=`An extra text`}"
             app:textColor="@{titleSubtitleExtraData.extraColor}"
             android:textSize="@dimen/dimen_12_sp" />
 

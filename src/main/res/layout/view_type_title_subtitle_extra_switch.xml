@@ -31,41 +31,43 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:layout_marginEnd="@dimen/dimen_16_dp"
+            android:layout_marginRight="@dimen/dimen_16_dp"
             android:orientation="vertical">
 
             <TextView
                 android:id="@+id/title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                tools:text="Title example here"
-                android:text="@{titleSubtitleExtraSwitchData.title}"
+                tools:text="Title example here, But very long one for testing an validating"
+                android:text="@{titleSubtitleExtraSwitchData.title, default=`Title example here`}"
                 app:textColor="@{titleSubtitleExtraSwitchData.titleColor}"
                 style="@style/Settings.Title" />
 
             <TextView
                 android:id="@+id/subtitle"
+                style="@style/Settings.OneLineText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                tools:text="A subtitle text, very long one also"
-                android:text="@{titleSubtitleExtraSwitchData.subtitle}"
+                tools:text="A subtitle text, But very long one for testing an validating IT"
+                android:text="@{titleSubtitleExtraSwitchData.subtitle, default=`Subtitle example here`}"
                 app:textColor="@{titleSubtitleExtraSwitchData.subtitleColor}" />
 
             <TextView
                 android:id="@+id/extraText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="@dimen/dimen_16_dp"
-                android:layout_marginRight="@dimen/dimen_16_dp"
                 android:ellipsize="end"
                 android:maxLines="1"
                 android:textSize="@dimen/dimen_12_sp"
-                tools:text="An extra text"
-                android:text="@{titleSubtitleExtraSwitchData.extra}"
+                tools:text="An extra text, But very long one for testing an validating it. Lorem ipsum ?"
+                android:text="@{titleSubtitleExtraSwitchData.extra, default=`Extra example here`}"
                 app:textColor="@{titleSubtitleExtraSwitchData.extraColor}"
                 />
 
         </LinearLayout>
 
+        <!-- Do not change switchView id, being use in BaseSettingsPresenter -->
         <android.support.v7.widget.SwitchCompat
             android:id="@+id/switchView"
             android:layout_width="wrap_content"

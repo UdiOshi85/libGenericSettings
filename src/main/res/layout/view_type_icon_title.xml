@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="iconTitleData"
             type="com.oshi.libgenericsettings.data.IconTitleData" />
@@ -32,7 +33,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@{iconTitleData.iconResId}"
+            app:srcCompat="@{iconTitleData.iconResId, default=@drawable/ic_android_black_24dp}"
             app:tint="@{iconTitleData.iconColor}"
             tools:srcCompat="@drawable/ic_android_black_24dp" />
 
@@ -43,9 +44,9 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/dimen_32_dp"
             android:layout_marginStart="@dimen/dimen_32_dp"
-            android:text="@{iconTitleData.title}"
+            android:text="@{iconTitleData.title, default=`Icon and a title.`}"
             app:textColor="@{iconTitleData.titleColor}"
-            tools:text="Title example here, Probably one of the longest titles ever" />
+            tools:text="Icon and a title. very large one indeed for checking" />
 
 
     </LinearLayout>

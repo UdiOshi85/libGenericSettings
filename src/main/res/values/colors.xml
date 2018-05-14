@@ -11,6 +11,7 @@
     <color name="orange">#FFA500</color>
     <color name="lights_orange">#80FFA500</color>
     <color name="grey">#d3d3d3</color>
+    <color name="grey_dark">#eb9e9d9d</color>
     <color name="green_dark">#007F00</color>
     <color name="light_green">#80007F00</color>
     <color name="red_disabled">#ff9999</color>

@@ -5,7 +5,6 @@ import android.databinding.BindingAdapter
 import android.graphics.PorterDuff
 import android.graphics.PorterDuffColorFilter
 import android.os.Build
-import android.preference.PreferenceManager
 import android.support.v4.content.ContextCompat
 import android.support.v4.graphics.drawable.DrawableCompat
 import android.support.v4.widget.CompoundButtonCompat
@@ -15,9 +14,8 @@ import android.support.v7.widget.AppCompatSeekBar
 import android.support.v7.widget.SwitchCompat
 import android.view.View
 import android.widget.TextView
-import com.oshi.libgenericsettings.R
-import com.oshi.libgenericsettings.data.BaseViewTypeData
-import com.oshi.libgenericsettings.data.ExpandableTitleBulletItemsData
+import com.oshi.libgenericsettings.GenericSettings
+import com.oshi.libgenericsettings.GenericSettings.get
 import com.oshi.libgenericsettings.data.TitleSwitchData
 
 /**
@@ -38,10 +36,11 @@ class BindingAdapterHelper {
         @JvmStatic
         @BindingAdapter("seekBarColor")
         fun setSeekBarColor(seekBar: AppCompatSeekBar, seekBarColor: Int) {
-
             if (seekBarColor != 0) {
                 val color = ContextCompat.getColor(seekBar.context, seekBarColor)
                 seekBar.progressDrawable.colorFilter = PorterDuffColorFilter(color, PorterDuff.Mode.MULTIPLY)
+            } else {
+                seekBar.progressDrawable.clearColorFilter()
             }
         }
 
@@ -51,6 +50,8 @@ class BindingAdapterHelper {
             if (seekBarThumbColor != 0 && Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
                 val color = ContextCompat.getColor(seekBar.context, seekBarThumbColor)
                 seekBar.thumb.colorFilter = PorterDuffColorFilter(color, PorterDuff.Mode.SRC_IN)
+            } else {
+                seekBar.thumb.clearColorFilter()
             }
         }
 
@@ -59,22 +60,31 @@ class BindingAdapterHelper {
         fun tintAppCompatImageViewColor(imageView: AppCompatImageView, color: Int) {
             if (color != 0) {
                 imageView.setColorFilter(ContextCompat.getColor(imageView.context, color), PorterDuff.Mode.SRC_IN)
+            } else {
+                imageView.clearColorFilter()
             }
         }
 
         @JvmStatic
         @BindingAdapter("textColor")
         fun setTextColor(textView: TextView, color: Int) {
+            initDefaultTextViewColorIfNeeded(textView)
             if (color != 0) {
                 textView.setTextColor(ContextCompat.getColor(textView.context, color))
+            } else {
+                textView.setTextColor(GenericSettings.defaultTextViewColor)
             }
         }
 
         @JvmStatic
         @BindingAdapter("buttonTint")
         fun setButtonTint(checkbox: AppCompatCheckBox, color: Int) {
+            initDefaultAppCompatCheckboxColorIfNeeded(checkbox)
             if (color != 0) {
                 CompoundButtonCompat.setButtonTintList(checkbox, ContextCompat.getColorStateList(checkbox.context, color))
+            } else {
+                // TODO - BUG - Cannot reset AppCompatCheckBox in better way than set to null
+                CompoundButtonCompat.setButtonTintList(checkbox, null)
             }
         }
 
@@ -91,7 +101,6 @@ class BindingAdapterHelper {
         fun setSwitchThumbColor(switchCompat: SwitchCompat, data: TitleSwitchData?) {
 
             if (data != null) {
-
                 val switchThumbCheckedColor = data.switchThumbCheckedColor
                 val switchThumbUncheckedColor = data.switchThumbUncheckedColor
 
@@ -99,6 +108,8 @@ class BindingAdapterHelper {
                     val context = switchCompat.context
                     val thumbColors = intArrayOf(ContextCompat.getColor(context, switchThumbUncheckedColor), ContextCompat.getColor(context, switchThumbCheckedColor))
                     DrawableCompat.setTintList(DrawableCompat.wrap(switchCompat.thumbDrawable), ColorStateList(states, thumbColors))
+                } else {
+                    DrawableCompat.setTintList(DrawableCompat.wrap(switchCompat.thumbDrawable), null)
                 }
             }
         }
@@ -117,24 +128,20 @@ class BindingAdapterHelper {
                     val context = switchCompat.context
                     val trackColors = intArrayOf(ContextCompat.getColor(context, switchTrackUncheckedColor), ContextCompat.getColor(context, switchTrackCheckedColor))
                     DrawableCompat.setTintList(DrawableCompat.wrap(switchCompat.trackDrawable), ColorStateList(states, trackColors))
+                } else {
+                    DrawableCompat.setTintList(DrawableCompat.wrap(switchCompat.trackDrawable), null)
                 }
             }
-        }
-
-        @JvmStatic
-        @BindingAdapter("textWithBullet")
-        fun setTextWithBullet(textView: TextView, text: String) {
-            textView.text = textView.context.getString(R.string.bullet).plus(" ").plus(text)
         }
 
         @JvmStatic
         @BindingAdapter("checked")
         fun setChecked(checkbox: AppCompatCheckBox, key: String?) {
             if (!key.isNullOrBlank()) {
-                val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(checkbox.context)
-                val value = sharedPreferences.getBoolean(key, false)
+                val prefs = GenericSettings.defaultPrefs(checkbox.context)
+                val value = prefs[key!!, false]
                 GLog.d("Fetch $key with $value")
-                checkbox.isChecked = value
+                checkbox.isChecked = value!!
             }
         }
 
@@ -142,10 +149,10 @@ class BindingAdapterHelper {
         @BindingAdapter("checked")
         fun setChecked(switch: SwitchCompat, key: String?) {
             if (!key.isNullOrBlank()) {
-                val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(switch.context)
-                val value = sharedPreferences.getBoolean(key, false)
+                val prefs = GenericSettings.defaultPrefs(switch.context)
+                val value = prefs[key!!, false]
                 GLog.d("Fetch $key with $value")
-                switch.isChecked = value
+                switch.isChecked = value!!
             }
         }
 
@@ -153,12 +160,24 @@ class BindingAdapterHelper {
         @BindingAdapter(value = ["progress", "initialValue"], requireAll = true)
         fun setProgress(seekBar: AppCompatSeekBar, key: String?, initialValue: Int = 0) {
             if (!key.isNullOrBlank()) {
-                val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(seekBar.context)
-                val value = sharedPreferences.getInt(key, initialValue)
+                val prefs = GenericSettings.defaultPrefs(seekBar.context)
+                val value = prefs[key!!, initialValue]
                 GLog.d("Fetch $key with $value")
-                seekBar.progress = value
+                seekBar.progress = value!!
             } else {
                 seekBar.progress = initialValue
+            }
+        }
+
+        private fun initDefaultTextViewColorIfNeeded(textView: TextView) {
+            if (GenericSettings.defaultTextViewColor == null) {
+                GenericSettings.defaultTextViewColor = textView.textColors
+            }
+        }
+
+        private fun initDefaultAppCompatCheckboxColorIfNeeded(checkbox: AppCompatCheckBox) {
+            if (GenericSettings.defaultAppCompatCheckboxButtonTintList == null) {
+                GenericSettings.defaultAppCompatCheckboxButtonTintList = CompoundButtonCompat.getButtonTintList(checkbox)
             }
         }
     }

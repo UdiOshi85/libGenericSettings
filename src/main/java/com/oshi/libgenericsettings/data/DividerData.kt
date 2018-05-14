@@ -2,6 +2,7 @@ package com.oshi.libgenericsettings.data
 
 import android.support.annotation.ColorRes
 import com.oshi.libgenericsettings.R
+import com.oshi.libgenericsettings.data.BaseViewTypeData.Companion.SettingsViewTypes
 
 /**
  * Divider line. Being use in layout/view_type_divider.xml
@@ -27,8 +28,8 @@ class DividerData : BaseViewTypeData() {
         }
     }
 
-    override fun getViewType(): Int {
-       return VIEW_TYPE_SETTINGS_DIVIDER
+    override fun getViewType(): SettingsViewTypes {
+       return BaseViewTypeData.Companion.SettingsViewTypes.VIEW_TYPE_SETTINGS_DIVIDER
     }
 
 }

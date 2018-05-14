@@ -2,6 +2,8 @@ package com.oshi.libgenericsettings.data
 
 import android.support.annotation.ColorRes
 import android.support.annotation.DrawableRes
+import com.oshi.libgenericsettings.data.BaseViewTypeData.Companion.SettingsViewTypes
+
 
 
 /**
@@ -22,8 +24,8 @@ class TitleIconSeekBarTextData(var seekBarMaximumValue : Int, @DrawableRes iconR
         }
     }
 
-    override fun getViewType(): Int {
-        return VIEW_TYPE_SETTINGS_TITLE_ICON_SEEKBAR
+    override fun getViewType(): Companion.SettingsViewTypes {
+        return SettingsViewTypes.VIEW_TYPE_SETTINGS_TITLE_ICON_SEEKBAR
     }
 
 

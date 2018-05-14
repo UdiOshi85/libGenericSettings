@@ -14,5 +14,4 @@
         app:backgroundColor="@{dividerData.dividerColor}"
         android:layout_height="1dp" />
 
-
 </layout>

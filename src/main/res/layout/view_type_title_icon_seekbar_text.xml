@@ -30,11 +30,9 @@
             style="@style/Settings.Title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="@dimen/dimen_16_dp"
-            android:layout_marginRight="@dimen/dimen_16_dp"
-            android:text="@{titleIconSeekBarTextData.title}"
+            android:text="@{titleIconSeekBarTextData.title, default=`Title, Icon, SeekBar and a text`}"
             app:textColor="@{titleIconSeekBarTextData.titleColor}"
-            tools:text="Title example here, But it's very very very long to check" />
+            tools:text="Title, Icon, SeekBar and a text, But very long for testings" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -48,7 +46,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 tools:srcCompat="@drawable/ic_android_black_24dp"
-                app:srcCompat="@{titleIconSeekBarTextData.iconResId}" />
+                app:srcCompat="@{titleIconSeekBarTextData.iconResId, default=@drawable/ic_android_black_24dp}" />
 
             <android.support.v7.widget.AppCompatSeekBar
                 android:id="@+id/seekBar"
@@ -72,6 +70,9 @@
                 app:layout_constraintBottom_toBottomOf="@+id/icon"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/icon"
+                android:singleLine="true"
+                android:ellipsize="end"
+                android:text="50"
                 tools:text="50"
                 app:textColor="@{titleIconSeekBarTextData.progressTextColor}" />
 

@@ -1,15 +1,13 @@
 package com.oshi.libgenericsettings.presenter
 
 import android.content.Context
-import android.preference.PreferenceManager
-import android.support.v7.widget.AppCompatCheckBox
 import android.support.v7.widget.RecyclerView
-import android.util.Log
 import android.view.View
-import com.oshi.libgenericsettings.R
+import com.oshi.libgenericsettings.GenericSettings
+import com.oshi.libgenericsettings.GenericSettings.get
+import com.oshi.libgenericsettings.GenericSettings.set
 import com.oshi.libgenericsettings.data.*
 import com.oshi.libgenericsettings.helper.GLog
-import com.oshi.libgenericsettings.helper.tag
 
 /**
  * A custom base settings provider which overrides all available types.
@@ -41,14 +39,6 @@ open class BaseSettingsPresenter(val recyclerView : RecyclerView) : ISettingsPre
 
     override fun onTitleUpDownValueChanged(view: View, data: TitleUpDownValueData, position: Int) {}
 
-    override fun onExpandableSimpleItemClicked(view: View, data: ExpandableTitleSimpleItemsData, parentPosition: Int, subItemPosition: Int) {}
-
-    override fun onExpandableCheckableItemClicked(view: View, data: ExpandableTitleCheckableItemsData, parentPosition: Int, subItemPosition: Int) {
-        val oldVal = data.items[subItemPosition].isChecked
-        val newVal = !oldVal
-        data.items[subItemPosition].isChecked = newVal
-        recyclerView.adapter.notifyItemChanged(parentPosition)
-    }
 
     override fun onCheckboxTitleClick(view: View, data: TitleCheckboxData, position: Int) {
         updateCheckboxChange(view, data.key, position)
@@ -64,7 +54,6 @@ open class BaseSettingsPresenter(val recyclerView : RecyclerView) : ISettingsPre
         updateSwitchChange(view, data.key, position)
     }
 
-    override fun onExpandableBulletItemClicked(view: View, data: ExpandableTitleBulletItemsData, parentPosition: Int, subItemPosition: Int) {}
 
     override fun getItems(context: Context): List<BaseViewTypeData> {
         return emptyList()
@@ -76,9 +65,9 @@ open class BaseSettingsPresenter(val recyclerView : RecyclerView) : ISettingsPre
 
     private fun updateCheckboxChange(view : View, key : String?, position : Int) {
         if (!key.isNullOrBlank()) {
-            val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(view.context)
-            val oldValue = sharedPreferences.getBoolean(key, false)
-            sharedPreferences.edit().putBoolean(key, !oldValue).apply()
+            val prefs = GenericSettings.defaultPrefs(view.context)
+            val oldValue = prefs[key!!, false]
+            prefs[key] = !oldValue!!
             GLog.d("Updated $key with ${!oldValue}")
             recyclerView.adapter.notifyItemChanged(position)
         }
@@ -86,9 +75,9 @@ open class BaseSettingsPresenter(val recyclerView : RecyclerView) : ISettingsPre
 
     private fun updateSwitchChange(view : View, key : String?, position : Int) {
         if (!key.isNullOrBlank()) {
-            val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(view.context)
-            val oldValue = sharedPreferences.getBoolean(key, false)
-            sharedPreferences.edit().putBoolean(key, !oldValue).apply()
+            val prefs = GenericSettings.defaultPrefs(view.context)
+            val oldValue = prefs[key!!, false]
+            prefs[key] = !oldValue!!
             GLog.d("Updated $key with ${!oldValue}")
             recyclerView.adapter.notifyItemChanged(position)
         }

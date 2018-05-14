@@ -32,7 +32,7 @@ class SettingsAdapter(var context: Context, var presenter: ISettingsPresenter) :
     }
 
     override fun getItemViewType(position: Int): Int {
-        return dataList[position].getViewType()
+        return dataList[position].getViewType().ordinal
     }
 
     fun replacePresenterAndNotify(newPresenter : ISettingsPresenter) {
@@ -44,100 +44,76 @@ class SettingsAdapter(var context: Context, var presenter: ISettingsPresenter) :
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
         return when (viewType) {
-            BaseViewTypeData.VIEW_TYPE_SETTINGS_HEADER -> {
+            BaseViewTypeData.Companion.SettingsViewTypes.VIEW_TYPE_HEADER.ordinal -> {
                 val binding = DataBindingUtil.inflate<ViewDataBinding>(
-                        layoutInflater, R.layout.view_type_header, parent, false)
+                        layoutInflater, BaseViewTypeData.Companion.SettingsViewTypes.VIEW_TYPE_HEADER.layoutResId, parent, false)
                 SettingsHeaderViewHolder(binding)
             }
-            BaseViewTypeData.VIEW_TYPE_SETTINGS_TITLE_SUBTITLE_SWITCH -> {
+            BaseViewTypeData.Companion.SettingsViewTypes.VIEW_TYPE_SETTINGS_TITLE_SUBTITLE_SWITCH.ordinal -> {
                 val binding = DataBindingUtil.inflate<ViewDataBinding>(
-                        layoutInflater, R.layout.view_type_title_subtitle_switch, parent, false)
+                        layoutInflater, BaseViewTypeData.Companion.SettingsViewTypes.VIEW_TYPE_SETTINGS_TITLE_SUBTITLE_SWITCH.layoutResId, parent, false)
                 SettingsTitleSubtitleSwitchViewHolder(binding)
             }
-            BaseViewTypeData.VIEW_TYPE_SETTINGS_TITLE_SUBTITLE -> {
+            BaseViewTypeData.Companion.SettingsViewTypes.VIEW_TYPE_SETTINGS_TITLE_SUBTITLE.ordinal -> {
                 val binding = DataBindingUtil.inflate<ViewDataBinding>(
                         layoutInflater, R.layout.view_type_title_subtitle, parent, false)
                 SettingsTitleSubtitleViewHolder(binding)
             }
-            BaseViewTypeData.VIEW_TYPE_SETTINGS_DIVIDER -> {
+            BaseViewTypeData.Companion.SettingsViewTypes.VIEW_TYPE_SETTINGS_DIVIDER.ordinal -> {
                 val binding = DataBindingUtil.inflate<ViewDataBinding>(
-                        layoutInflater, R.layout.view_type_divider, parent, false)
+                        layoutInflater, BaseViewTypeData.Companion.SettingsViewTypes.VIEW_TYPE_SETTINGS_DIVIDER.layoutResId, parent, false)
                 SettingsDividerViewHolder(binding)
             }
-            BaseViewTypeData.VIEW_TYPE_SETTINGS_TITLE_SWITCH -> {
+            BaseViewTypeData.Companion.SettingsViewTypes.VIEW_TYPE_SETTINGS_TITLE_SWITCH.ordinal -> {
                 val binding = DataBindingUtil.inflate<ViewDataBinding>(
-                        layoutInflater, R.layout.view_type_title_switch, parent, false)
+                        layoutInflater, BaseViewTypeData.Companion.SettingsViewTypes.VIEW_TYPE_SETTINGS_TITLE_SWITCH.layoutResId, parent, false)
                 SettingsTitleSwitchViewHolder(binding)
             }
-            BaseViewTypeData.VIEW_TYPE_CHECKBOX_TITLE_SUBTITLE -> {
+            BaseViewTypeData.Companion.SettingsViewTypes.VIEW_TYPE_CHECKBOX_TITLE_SUBTITLE.ordinal -> {
                 val binding = DataBindingUtil.inflate<ViewDataBinding>(
-                        layoutInflater, R.layout.view_type_title_subtitle_checkbox, parent, false)
+                        layoutInflater, BaseViewTypeData.Companion.SettingsViewTypes.VIEW_TYPE_CHECKBOX_TITLE_SUBTITLE.layoutResId, parent, false)
                 SettingsCheckBoxTitleSubtitleViewHolder(binding)
             }
-            BaseViewTypeData.VIEW_TYPE_SETTINGS_TITLE -> {
+            BaseViewTypeData.Companion.SettingsViewTypes.VIEW_TYPE_SETTINGS_TITLE.ordinal -> {
                 val binding = DataBindingUtil.inflate<ViewDataBinding>(
-                        layoutInflater, R.layout.view_type_title, parent, false)
+                        layoutInflater, BaseViewTypeData.Companion.SettingsViewTypes.VIEW_TYPE_SETTINGS_TITLE.layoutResId, parent, false)
                 SettingsTitleViewHolder(binding)
             }
-            BaseViewTypeData.VIEW_TYPE_SETTINGS_ICON_TITLE -> {
+            BaseViewTypeData.Companion.SettingsViewTypes.VIEW_TYPE_SETTINGS_ICON_TITLE.ordinal -> {
                 val binding = DataBindingUtil.inflate<ViewDataBinding>(
-                        layoutInflater, R.layout.view_type_icon_title, parent, false)
+                        layoutInflater, BaseViewTypeData.Companion.SettingsViewTypes.VIEW_TYPE_SETTINGS_ICON_TITLE.layoutResId, parent, false)
                 SettingsIconTitleViewHolder(binding)
             }
-            BaseViewTypeData.VIEW_TYPE_SETTINGS_TITLE_SECONDARY_TITLE -> {
+            BaseViewTypeData.Companion.SettingsViewTypes.VIEW_TYPE_SETTINGS_TITLE_SECONDARY_TITLE.ordinal -> {
                 val binding = DataBindingUtil.inflate<ViewDataBinding>(
-                        layoutInflater, R.layout.view_type_title_secondary_title, parent, false)
+                        layoutInflater, BaseViewTypeData.Companion.SettingsViewTypes.VIEW_TYPE_SETTINGS_TITLE_SECONDARY_TITLE.layoutResId, parent, false)
                 SettingsTitleSecondaryTitleViewHolder(binding)
             }
-            BaseViewTypeData.VIEW_TYPE_SETTINGS_TITLE_ICON_SEEKBAR -> {
+            BaseViewTypeData.Companion.SettingsViewTypes.VIEW_TYPE_SETTINGS_TITLE_ICON_SEEKBAR.ordinal -> {
                 val binding = DataBindingUtil.inflate<ViewDataBinding>(
-                        layoutInflater, R.layout.view_type_title_icon_seekbar_text, parent, false)
+                        layoutInflater, BaseViewTypeData.Companion.SettingsViewTypes.VIEW_TYPE_SETTINGS_TITLE_ICON_SEEKBAR.layoutResId, parent, false)
                 SettingsTitleIconSeekBarTextViewHolder(binding)
             }
-            BaseViewTypeData.VIEW_TYPE_SETTINGS_TITLE_UP_DOWN_VALUE -> {
+            BaseViewTypeData.Companion.SettingsViewTypes.VIEW_TYPE_SETTINGS_TITLE_UP_DOWN_VALUE.ordinal -> {
                 val binding = DataBindingUtil.inflate<ViewDataBinding>(
-                        layoutInflater, R.layout.view_type_title_up_down_value, parent, false)
+                        layoutInflater, BaseViewTypeData.Companion.SettingsViewTypes.VIEW_TYPE_SETTINGS_TITLE_UP_DOWN_VALUE.layoutResId, parent, false)
                 SettingsTitleUpDownValueViewHolder(binding)
             }
-            BaseViewTypeData.VIEW_TYPE_SETTINGS_EXPANDABLE_TITLE_SIMPLE_ITEMS -> {
-                val binding = DataBindingUtil.inflate<ViewDataBinding>(layoutInflater, R.layout.view_type_expandable_title_simple_items, parent, false)
-                SettingsExpandableTitleSimpleItemsViewHolder(binding)
-            }
-            BaseViewTypeData.VIEW_TYPE_SETTINGS_TITLE_CHECKBOX -> {
-                val binding = DataBindingUtil.inflate<ViewDataBinding>(layoutInflater, R.layout.view_type_title_checkbox, parent, false)
+            BaseViewTypeData.Companion.SettingsViewTypes.VIEW_TYPE_SETTINGS_TITLE_CHECKBOX.ordinal -> {
+                val binding = DataBindingUtil.inflate<ViewDataBinding>(layoutInflater, BaseViewTypeData.Companion.SettingsViewTypes.VIEW_TYPE_SETTINGS_TITLE_CHECKBOX.layoutResId, parent, false)
                 SettingsTitleCheckboxViewHolder(binding)
             }
-            BaseViewTypeData.VIEW_TYPE_SETTINGS_TITLE_SUBTITLE_EXTRA -> {
-                val binding = DataBindingUtil.inflate<ViewDataBinding>(layoutInflater, R.layout.view_type_title_subtitle_extra, parent, false)
+            BaseViewTypeData.Companion.SettingsViewTypes.VIEW_TYPE_SETTINGS_TITLE_SUBTITLE_EXTRA.ordinal -> {
+                val binding = DataBindingUtil.inflate<ViewDataBinding>(layoutInflater, BaseViewTypeData.Companion.SettingsViewTypes.VIEW_TYPE_SETTINGS_TITLE_SUBTITLE_EXTRA.layoutResId, parent, false)
                 SettingsTitleSubtitleExtraViewHolder(binding)
             }
-            BaseViewTypeData.VIEW_TYPE_SETTINGS_TITLE_SUBTITLE_EXTRA_CHECKBOX -> {
-                val binding = DataBindingUtil.inflate<ViewDataBinding>(layoutInflater, R.layout.view_type_title_subtitle_extra_checkbox, parent, false)
+            BaseViewTypeData.Companion.SettingsViewTypes.VIEW_TYPE_SETTINGS_TITLE_SUBTITLE_EXTRA_CHECKBOX.ordinal -> {
+                val binding = DataBindingUtil.inflate<ViewDataBinding>(layoutInflater, BaseViewTypeData.Companion.SettingsViewTypes.VIEW_TYPE_SETTINGS_TITLE_SUBTITLE_EXTRA_CHECKBOX.layoutResId, parent, false)
                 SettingsTitleSubtitleExtraCheckboxViewHolder(binding)
             }
-            BaseViewTypeData.VIEW_TYPE_SETTINGS_TITLE_SUBTITLE_EXTRA_SWITCH -> {
-                val binding = DataBindingUtil.inflate<ViewDataBinding>(layoutInflater, R.layout.view_type_title_subtitle_extra_switch, parent, false)
+            BaseViewTypeData.Companion.SettingsViewTypes.VIEW_TYPE_SETTINGS_TITLE_SUBTITLE_EXTRA_SWITCH.ordinal -> {
+                val binding = DataBindingUtil.inflate<ViewDataBinding>(layoutInflater, BaseViewTypeData.Companion.SettingsViewTypes.VIEW_TYPE_SETTINGS_TITLE_SUBTITLE_EXTRA_SWITCH.layoutResId, parent, false)
                 SettingsTitleSubtitleExtraSwitchViewHolder(binding)
-            }
-            BaseViewTypeData.VIEW_TYPE_SETTINGS_EXPANDABLE_TITLE_SUBTITLE_SIMPLE_ITEMS -> {
-                val binding = DataBindingUtil.inflate<ViewDataBinding>(layoutInflater, R.layout.view_type_expandable_title_subtitle_simple_items, parent, false)
-                SettingsExpandableTitleSubtitleSimpleItemsViewHolder(binding)
-            }
-            BaseViewTypeData.VIEW_TYPE_SETTINGS_EXPANDABLE_TITLE_CHECKABLE_ITEMS -> {
-                val binding = DataBindingUtil.inflate<ViewDataBinding>(layoutInflater, R.layout.view_type_expandable_title_checkable_items, parent, false)
-                SettingsExpandableTitleCheckableItemViewHolder(binding)
-            }
-            BaseViewTypeData.VIEW_TYPE_SETTINGS_EXPANDABLE_TITLE_SUBTITLE_CHECKABLE_ITEMS -> {
-                val binding = DataBindingUtil.inflate<ViewDataBinding>(layoutInflater, R.layout.view_type_expandable_title_subtitle_checkable_items, parent, false)
-                SettingsExpandableTitleSubtitleCheckableItemsViewHolder(binding)
-            }
-            BaseViewTypeData.VIEW_TYPE_SETTINGS_EXPANDABLE_TITLE_BULLET_ITEMS -> {
-                val binding = DataBindingUtil.inflate<ViewDataBinding>(layoutInflater, R.layout.view_type_expandable_title_bullet_items, parent, false)
-                SettingsExpandableTitleBulletItemsViewHolder(binding)
-            }
-            BaseViewTypeData.VIEW_TYPE_SETTINGS_EXPANDABLE_TITLE_SUBTITLE_BULLET_ITEMS -> {
-                val binding = DataBindingUtil.inflate<ViewDataBinding>(layoutInflater, R.layout.view_type_expandable_title_subtitle_bullet_items, parent, false)
-                SettingsExpandableTitleSubtitleBulletItemsViewHolder(binding)
             }
             else -> {
                 // TODO fix this ASAP

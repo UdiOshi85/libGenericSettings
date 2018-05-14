@@ -31,20 +31,23 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@{titleSecondaryTitleData.title}"
+            android:layout_marginEnd="@dimen/dimen_8_dp"
+            android:layout_marginRight="@dimen/dimen_8_dp"
+            android:text="@{titleSecondaryTitleData.title, default=`Title with secondary title`}"
             app:textColor="@{titleSecondaryTitleData.titleColor}"
-            tools:text="Title example here" />
+            tools:text="Title with secondary title, But very long one for testings" />
 
         <TextView
+            style="@style/Settings.OneLineText"
             android:id="@+id/secondaryTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{titleSecondaryTitleData.secondaryTitle}"
+            android:text="@{titleSecondaryTitleData.secondaryTitle, default=`Secondary text`}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:textColor="@{titleSecondaryTitleData.secondaryTitleColor}"
-            tools:text="99" />
+            tools:text="Secondary text" />
 
 
     </LinearLayout>

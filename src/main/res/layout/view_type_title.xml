@@ -30,9 +30,11 @@
             style="@style/Settings.Title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@{titleData.title}"
+            android:text="@{titleData.title, default=`Title example here`}"
+            android:singleLine="true"
+            android:ellipsize="end"
             app:textColor="@{titleData.titleColor}"
-            tools:text="Title example here, Probably one of the longest titles ever" />
+            tools:text="Title example here" />
 
 
     </FrameLayout>

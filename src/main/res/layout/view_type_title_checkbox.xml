@@ -33,7 +33,8 @@
             android:layout_marginEnd="@dimen/dimen_8_dp"
             android:layout_marginRight="@dimen/dimen_8_dp"
             android:layout_weight="1"
-            android:text="@{titleCheckboxData.title, default=`Title example here, Probably one of the longest titles ever`}"
+            tools:text="Title with Checkbox, but very long one for testings"
+            android:text="@{titleCheckboxData.title, default=`Title with Checkbox`}"
             app:textColor="@{titleCheckboxData.titleColor}" />
 
         <android.support.v7.widget.AppCompatCheckBox
